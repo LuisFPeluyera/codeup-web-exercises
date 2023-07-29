@@ -1,10 +1,10 @@
 "use strict";
 
-//console.log("this is an external js, you load me in with a src attribute")
 
-//user interaction
+        //***************user interaction*********************
 
-//Alert; Confirm; Prompts;
+
+        //Alert; Confirm; Prompts;
 
 
 //Alerts spawns a small browser window with only one "accept" button
@@ -19,6 +19,13 @@
 //Confirm - I want to ask my user a YES or NO question
 
         //sends a yes or no question
+
+
+
+
+        //EXERCISE 3 PART 1 OF WORKING WITH DATA TYPES, OPERATORS, AND VARIABLES
+
+
 
 //let theLittleMermaid = 3 * 3;
 //
@@ -43,7 +50,7 @@ alert("Your total is $" + totalDays.toFixed(2));
  */
 
 
-
+        //EXERCISE 3 PART 2 OF WORKING WITH DATA TYPES, OPERATORS, AND VARIABLES
 
 
 
@@ -76,18 +83,61 @@ alert("Your total for this week is $" + total.toFixed(2));
 
  */
 
-let $classNotFull = confirm("Classroom sit available?");
+
+        //EXERCISE 3 PART 3 OF WORKING WITH DATA TYPES, OPERATORS, AND VARIABLES
+/**
+let classNotFull = confirm("Classroom sit available?");
 
 let scheduleClear = confirm("Are you available for the class?");
 
- if($classNotFull && scheduleClear) {
+let willAttend = classNotFull && scheduleClear;
+
+alert("You are going to attend this class is: " + willAttend);
+
+
+ if(classNotFull && scheduleClear) {
      alert("Congratulatios you are going to class!");
  } else {
      alert("Sorry maybe next time!");
  };
+ */
+
+
+
+        //EXERCISE 3 PART 4 OF WORKING WITH DATA TYPES, OPERATORS, AND VARIABLES
+
+
+/**
+
+ alert("Let's see if you can get this product!");
+
+let validOffer = confirm("Is the offer still valid?");
+
+let premiumMember = confirm("Are you a Premium member?");
+
+let atLeastTwo = confirm("Are you buying more than one?");
+
+let offer = alert("Are you getting the product? "  + (validOffer && (premiumMember || atLeastTwo)));
+
+ */
+
+/**
+
+if (validOffer && (premiumMember || atLeastTwo)) {
+        alert("Congrats you are able to purchase this product today!")
+
+}   else {
+    alert("Unfortunately this offer is not available at this time!");
+};
+ */
 
 
 
 
+        //EXERCISE OF JavaScript with HTML
 
+alert("Welcome to my Website!");
 
+let userResponse = prompt("What is your favorite color?");
+
+alert("Great, " + userResponse.trim() + " is my favorite color too!");
