@@ -24,7 +24,7 @@
 
 
 
-//let favoriteColor = prompt("what's your favorite color?");
+// let favoriteColor = prompt("what's your favorite color?");
 // function analyzeColor (color) {
 //     if (color === "red") {
 //         alert("its red");
@@ -45,18 +45,46 @@
 //         alert("What!");
 //     }
 // }
+
+//analyzeColor(favoriteColor);
+
+
+//*************SECOND VERSION
+
+// let favoriteColor = prompt("what's your favorite color?");
+// function analyzeColor (color) {
+//     if (color === "red") {
+//             return "its red";
+//         } else if (color === "blue") {
+//             return "its blue";
+//         } else if (color === "orange") {
+//             return "its orange";
+//         } else if (color === "yellow") {
+//             return "its yellow";
+//         } else if (color === "green") {
+//             return"its green";
+//         } else if (color === "violet") {
+//             return "its violet";
+//         }else if (color === "indigo") {
+//             return "its indigo";
+//         }
+//         else {
+//             return "What!";
+//     }
+// }
 //
-// analyzeColor(favoriteColor);
+// alert(analyzeColor(favoriteColor));
+
+
 
 
 
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
-// - `randomColor`: contains a single random color value from the list (this
-//                  will contain a different color every time the page loads)
-var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-var randomColor = colors[Math.floor(Math.random() * colors.length)];
+// - `randomColor`: contains a single random color value from the list (this will contain a different color every time the page loads)
+// var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+// var randomColor = colors[Math.floor(Math.random() * colors.length)];
 /**
  * TODO:
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
@@ -100,6 +128,40 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
 //
 // }
 // console.log(randomColor);
+
+
+
+
+
+//****************SECOND VERSION
+
+
+
+
+// let favoriteColor = (prompt("what's your favorite color?").toLowerCase()).trim();
+//
+// function colorAnalysis(color) {
+//     switch (color) {
+//         case "red":
+//             return "its red";
+//         case "blue":
+//             return "its blue";
+//         case "orange":
+//             return "its orange";
+//         case "yellow":
+//             return "its yellow";
+//         case "green":
+//             return"its green";
+//         case "violet":
+//             return "its violet";
+//         case "indigo":
+//             return "its indigo";
+//         default:
+//             return "Don't have that color!";
+//     }
+// }
+// alert(`Your favorite colors is ${colorAnalysis(favoriteColor)}`);
+
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
@@ -153,33 +215,43 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 
+
+
 let discountPrice;
 function calculateTotal (discount, price) {
     if (discount === 0) {
-        // alert("Your total is $" + price.toFixed(2));
-        return price;
+
+        return price.toFixed(2);
+
     } else if (discount === 1) {
-        // alert("Your new total is $" + (price - (.10 * price)).toFixed(2));
+
         return price - (.10 * price).toFixed(2);
+
     } else if (discount === 2) {
-        // alert("Your new total is $" + (price - (.25 * price)).toFixed(2));
+
         return price - (.25 * price).toFixed(2);
+
     } else if (discount === 3) {
-        // alert("Your new total is $" + (price - (.35 * price)).toFixed(2));
+
         return price - (.35 * price).toFixed(2);
+
     } else if (discount === 4) {
-        // alert("Your new total is $" + (price - (.50 * price)).toFixed(2));
+
         return price - (.50 * price).toFixed(2);
+
     } else if (discount === 5) {
-        // alert("Your purchase is free! $" + (price-price).toFixed(2));
+
         return (price-price).toFixed(2);
+
     }else {
-        // alert("No discount!")
+
         return "No discount!"
     }
 }
 
  discountPrice = calculateTotal(1,100);
+
+
 
 /**
  * TODO:
@@ -189,16 +261,16 @@ function calculateTotal (discount, price) {
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
-// Generate a random number between 0 and 6
-//  var luckyNumber = Math.floor(Math.random() * 6);
-//
-//
-//  let userTotalBill = Number(prompt("Whats your total?"));
-//
-//  let discountedTotal = calculateTotal(luckyNumber,userTotalBill);
-//
-// alert("Your lucky number is " + luckyNumber +", Your price before discount was $" + userTotalBill.toFixed(2));
-// alert("Your new price is $" +discountedTotal);
+//Generate a random number between 0 and 6
+ var luckyNumber = Math.floor(Math.random() * 6);
+
+
+ let userTotalBill = Number(prompt("Whats your total?"));
+
+ let discountedTotal = calculateTotal(luckyNumber,userTotalBill);
+
+alert(isNaN(userTotalBill) ? "Invalid Input Data Type, PLEASE ENTER ONLY NUMBERS" :`Your lucky number is ${luckyNumber}, Your price before discount was $${userTotalBill.toFixed(2)} "Your new price is $${discountedTotal}`);
+
 
 
 /**
@@ -220,7 +292,7 @@ function calculateTotal (discount, price) {
  * HINT: The way we prompt for a value could be improved
  */
 
-let confirmation =confirm("Would you like to enter a number?");
+//let confirmation =confirm("Would you like to enter a number?");
 
 // if (confirmation) {
 //     let response =Number(prompt("Whats your number?"));
@@ -232,14 +304,16 @@ let confirmation =confirm("Would you like to enter a number?");
 //     //finish this part as homework
 // }
 
-if (confirmation) {
-    let response = Number(prompt("Whats your number?"));
-} else {
-    alert(response % 2 !== 0 ? "Odd" : "even");
-    alert(response + 100);
-    alert(response > 0 ? "Positive" : "Negative");
-    //finish this part as homework
-}
+// if (confirmation) {
+//     let response = Number(prompt("Whats your number?"));
+//     if (isNaN(response)) {
+//         alert("Incorrect Input Data Type");
+//     } else {
+//         alert(response % 2 !== 0 ? "Odd" : "even");
+//         alert(response + 100);
+//         alert(response > 0 ? "Positive" : "Negative");
+//     }
+// }
 
 // let userResponse = Number(prompt("What's your number?"));
 // function checkNumber (number) {
