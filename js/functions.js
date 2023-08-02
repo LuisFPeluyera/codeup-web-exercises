@@ -9,10 +9,10 @@
      * > sayHello("codeup") // returns "Hello, codeup!"
      */
 
-    function sayHello(name) {
-
-        return `Hello, ${name}!`;
-    }
+    // function sayHello(name) {
+    //
+    //     return `Hello, ${name}!`;
+    // }
 
 //console.log(sayHello("tu"));
 
@@ -24,7 +24,7 @@
      * console.log 'helloMessage' to check your work
      */
 
-    let helloMessage = sayHello("Luis");
+   // let helloMessage = sayHello("Luis");
 
 //console.log(helloMessage);
 
@@ -95,9 +95,9 @@
      * > calculateTip(0.15, 33.42) // returns 5.013
      */
 
-// function calculateTip (percent, total) {
+//function calculateTip (percent, total) {
 //     return percent * total;
-//}  for whole number input in the % divide "(percent/100)" on the return calculation
+// }  //for whole number input in the % divide "(percent/100)" on the return calculation
 
     /**
      * TODO:
@@ -108,11 +108,11 @@
 
 //***************FIRST VERSION
 
-//tipPercent is entered as a decimal number
-
+// tipPercent is entered as a decimal number
+//
 // function calculateTip (percent, total) {
 //     return percent * total;
-//}
+// }
 // let subTotal = Number(prompt("What is the bill total?"));
 //
 // let tipPercent =Number(prompt("What % would you like to tip?"));
@@ -189,8 +189,8 @@
 //
 //
 // ( isNaN(subTotal) || isNaN(tipPercent)) ? alert("Invalid Input Data Type \nPlease reload page and try again \nENTER NUMBERS ONLY") : calculateTip(tipPercent,subTotal)
-
-//let totalPurchase =calculateTip(tipPercent, subTotal);
+//
+// let totalPurchase =calculateTip(tipPercent, subTotal);
 
 
 
@@ -227,32 +227,18 @@
 //*********************VERSION TWO
 
 
-// function applyDiscount (price, discountPer) {
-//     alert(price - (price * (discountPer/100)).toFixed(2));
-//     return   price - (price * (discountPer/100));
-// }
-//
-//
-//
-//
-// let originalPrice = Number(prompt("What is the original price?"));
-// let discount = Number(prompt("what is the discount percentage?"));
-//
-//
-// (isNaN(originalPrice)|| isNaN(discount) ) ? alert("Invalid Input Data Type \nENTER ONLY NUMBERS") : applyDiscount(originalPrice,discount);
-
-function isEven(input){
-    return input % 2 == 0;
+function applyDiscount (price, discountPer) {
+    alert("Your new Discounted price is $" + price - (price * (discountPer/100)).toFixed(2));
+    return   price - (price * (discountPer/100));
 }
 
-// function isEven(input) {
-//     if (input === false) {
-//         return false;
-//     } else {
-//
-//         return input % 2 == 0;
-//
-//     }
-// }
 
-alert(isEven(false));
+
+
+let originalPrice = Number(prompt("What is the original price?"));
+let discount = Number(prompt("what is the discount percentage?"));
+
+
+(isNaN(originalPrice)|| isNaN(discount) ) ? alert("Invalid Input Data Type \nENTER ONLY NUMBERS") : applyDiscount(originalPrice,discount);
+
+

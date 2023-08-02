@@ -269,7 +269,7 @@ function calculateTotal (discount, price) {
 
  let discountedTotal = calculateTotal(luckyNumber,userTotalBill);
 
-alert(isNaN(userTotalBill) ? "Invalid Input Data Type, PLEASE ENTER ONLY NUMBERS" :`Your lucky number is ${luckyNumber}, Your price before discount was $${userTotalBill.toFixed(2)} "Your new price is $${discountedTotal}`);
+alert(isNaN(userTotalBill) ? "Invalid Input Data Type, PLEASE ENTER ONLY NUMBERS" :`Your lucky number is ${luckyNumber}, Your price before discount was $${userTotalBill.toFixed(2)} Your new price is $${discountedTotal.toFixed(2)}`);
 
 
 
