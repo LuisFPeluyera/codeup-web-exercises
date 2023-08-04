@@ -217,39 +217,39 @@
 
 
 
-let discountPrice;
-function calculateTotal (discount, price) {
-    if (discount === 0) {
-
-        return price.toFixed(2);
-
-    } else if (discount === 1) {
-
-        return price - (.10 * price).toFixed(2);
-
-    } else if (discount === 2) {
-
-        return price - (.25 * price).toFixed(2);
-
-    } else if (discount === 3) {
-
-        return price - (.35 * price).toFixed(2);
-
-    } else if (discount === 4) {
-
-        return price - (.50 * price).toFixed(2);
-
-    } else if (discount === 5) {
-
-        return (price-price).toFixed(2);
-
-    }else {
-
-        return "No discount!"
-    }
-}
-
- discountPrice = calculateTotal(1,100);
+// let discountPrice;
+// function calculateTotal (discount, price) {
+//     if (discount === 0) {
+//
+//         return price.toFixed(2);
+//
+//     } else if (discount === 1) {
+//
+//         return price - (.10 * price).toFixed(2);
+//
+//     } else if (discount === 2) {
+//
+//         return price - (.25 * price).toFixed(2);
+//
+//     } else if (discount === 3) {
+//
+//         return price - (.35 * price).toFixed(2);
+//
+//     } else if (discount === 4) {
+//
+//         return price - (.50 * price).toFixed(2);
+//
+//     } else if (discount === 5) {
+//
+//         return (price-price).toFixed(2);
+//
+//     }else {
+//
+//         return "No discount!"
+//     }
+// }
+//
+//  discountPrice = calculateTotal(1,100);
 
 
 
@@ -262,14 +262,14 @@ function calculateTotal (discount, price) {
  * price before the discount was, and what their price after the discount is.
  */
 //Generate a random number between 0 and 6
- var luckyNumber = Math.floor(Math.random() * 6);
-
-
- let userTotalBill = Number(prompt("Whats your total?"));
-
- let discountedTotal = calculateTotal(luckyNumber,userTotalBill);
-
-alert(isNaN(userTotalBill) ? "Invalid Input Data Type, PLEASE ENTER ONLY NUMBERS" :`Your lucky number is ${luckyNumber}, Your price before discount was $${userTotalBill.toFixed(2)} Your new price is $${discountedTotal.toFixed(2)}`);
+//  var luckyNumber = Math.floor(Math.random() * 6);
+//
+//
+//  let userTotalBill = Number(prompt("Whats your total?"));
+//
+//  let discountedTotal = calculateTotal(luckyNumber,userTotalBill);
+//
+// alert(isNaN(userTotalBill) ? "Invalid Input Data Type, PLEASE ENTER ONLY NUMBERS" :`Your lucky number is ${luckyNumber}, Your price before discount was $${userTotalBill.toFixed(2)} Your new price is $${discountedTotal.toFixed(2)}`);
 
 
 
@@ -329,3 +329,6 @@ alert(isNaN(userTotalBill) ? "Invalid Input Data Type, PLEASE ENTER ONLY NUMBERS
 // let checkedNumber = checkNumber(userResponse);
 //
 // alert(checkedNumber);
+
+
+

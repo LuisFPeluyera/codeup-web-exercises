@@ -227,18 +227,20 @@
 //*********************VERSION TWO
 
 
-function applyDiscount (price, discountPer) {
-    alert("Your new Discounted price is $" + price - (price * (discountPer/100)).toFixed(2));
-    return   price - (price * (discountPer/100));
-}
+// function applyDiscount (price, discountPer) {
+//     alert("Your new Discounted price is $" + price - (price * (discountPer/100)).toFixed(2));
+//     return   price - (price * (discountPer/100));
+// }
+//
+//
+//
+//
+// let originalPrice = Number(prompt("What is the original price?"));
+// let discount = Number(prompt("what is the discount percentage?"));
+//
+//
+// (isNaN(originalPrice)|| isNaN(discount) ) ? alert("Invalid Input Data Type \nENTER ONLY NUMBERS") : applyDiscount(originalPrice,discount);
+//
 
-
-
-
-let originalPrice = Number(prompt("What is the original price?"));
-let discount = Number(prompt("what is the discount percentage?"));
-
-
-(isNaN(originalPrice)|| isNaN(discount) ) ? alert("Invalid Input Data Type \nENTER ONLY NUMBERS") : applyDiscount(originalPrice,discount);
 
 
