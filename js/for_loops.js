@@ -15,9 +15,9 @@
 
 
 // let randomNumber = Math.floor(Math.random() * (200 - 20) + 20);
-//let randomNumber;
-
-
+//  randomNumber;
+//
+//
 // function isEvenOrOdd(number) {
 //     if (number % 2 !== 0) {
 //
@@ -49,7 +49,7 @@
 //     }
 // }
 
-//TODO THIS ONE WORKS
+//TODO ******************     STUDY THIS ONE
 
 // for (let i = 1; i <= 9; i++) {
 //     var res = [];
@@ -58,16 +58,22 @@
 //     }
 //     console.log(res.join(""));
 // }
-
-
-
-
-
-
+//
+//     for(let row = 1; row <= 9; row++){
+//
+//         let str="";
+//
+//         for(let j=0;j < row; j++) {
+//             str += row;
+//         }
+//         console.log(str);
+//     }
+//
+//
 
 //************************EXERCISE FIVE
 
 
-// for (let i = 100; i >= 0; i-=5) {
+// for (let i = 100; i > 0; i-=5) {
 //     console.log(i);
 // }
