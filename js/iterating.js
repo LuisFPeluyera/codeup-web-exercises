@@ -1,12 +1,12 @@
-(function(){
+ (function(){
     "use strict";
 
-    /**
-     * TODO:
-     * Create an array of 4 people's names and store it in a variable called
-     * 'names'.
-     */
-let names =["Josh","Diego", "Aaron", "Hunter"];
+     /**
+      * TODO:
+      * Create an array of 4 people's names and store it in a variable called
+      * 'names'.
+      */
+ let names =["Josh","Diego", "Aaron", "Hunter"];
 
 
     /**
@@ -23,10 +23,12 @@ let names =["Josh","Diego", "Aaron", "Hunter"];
      * Create log statements that will print each of the names individually by
      * accessing each element's index.
      */
-    names.forEach(function (element,index) {
-        console.log("Here is the name: " + element + " in index: " + index);
-    })
-    console.log("");
+    console.log(names[0]);
+    console.log(names[1]);
+    console.log(names[2]);
+    console.log(names[3]);
+
+  console.log("");
     /**
      * TODO:
      * Write some code that uses a for loop to log every item in the names
@@ -65,47 +67,39 @@ let names =["Josh","Diego", "Aaron", "Hunter"];
     console.log("");
 
 //TODO           FIRST FUNCTION
-    const firstFunction = array => {return array[0]};
+    const first = array => {return array[0]};
 
-    console.log(firstFunction(names));
+    console.log(first(names));
 
 
     console.log("");
 
 //TODO          SECOND FUNCTION
 
+    const second = array => {return array[1]};
 
-    const secondFunction = array => {return array[1]};
-
-    console.log(secondFunction(names));
+    console.log(second(names));
 
     console.log("");
 
 //TODO         LAST FUNCTION
 
-    const lastFunction = array => { return array.slice(-1)}
-        //this is another option to return the last element
+    //const last = array => { return array.slice(-1)}
+
+    const last = array => { return array[array.length-1]}
+
+    //const last = array => {
         //let lastElement = array.reverse()
         //return lastElement[0];
     //}
 
 
-    console.log(lastFunction(names));
+    console.log(last(names));
 
     console.log("");
 
     console.log(names);
 
 })();
-//
-// let arr = [1,2,3,4,5,6];
-// console.log(arr);
-//
-// // // for(let newArray of oldArray) {
-// //      code here, maybe console.log;
-// // }
-//
-// arr.forEach(function (element,index,array){
-//     console.log("here is the element: " + place);
-//
-// })
+
+
