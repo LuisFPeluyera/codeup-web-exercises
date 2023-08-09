@@ -12,14 +12,15 @@
      *  > console.log(person.lastName) // "Sanchez"
      */
 
-// let person = {
-//     firstName: "Luis",
-//     lastName: "Peluyera"
-//     };
-//
-//     console.log(person.firstName);
-//     console.log(person.lastName);
+let person = {
+    firstName: "Luis",
+    lastName: "Peluyera"
+    };
 
+    // console.log(person.firstName);
+    // console.log(person.lastName);
+
+    console.log("");
 
     /**
      * TODO:
@@ -30,9 +31,9 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
-
+    //
     // person.sayHello = function () {
-    //     return "Hello from " + this.firstName + this.lastName;
+    //     return "Hello from " + this.firstName + " " + this.lastName;
     // }
     //
     // console.log(person.sayHello());
@@ -64,20 +65,20 @@
    //
    //     let result;
    //
-   //     if(element.amount <= 200) {
-   //
-   //         result = element.name + ", Your Total is: $" + element.amount
-   //
-   //     } else {
-   //
-   //         result = element.name + ", Your subTotal is: $" +element.amount + ", Your total is: $" + (element.amount - (element.amount * .12))
-   //     }
-   //
+   //     // if(element.amount <= 200) {
+   //     //
+   //     //     result = element.name + ", Your Total is: $" + element.amount
+   //     //
+   //     // } else {
+   //     //
+   //     //     result = element.name + ", Your subTotal is: $" +element.amount + ", Your total is: $" + (element.amount - (element.amount * .12))
+   //     // }
+   //     result = (element.amount <= 200) ? `${element.name}, Your total is $${element.amount}` : `${element.name}, total is $${element.amount - (element.amount * .12)}`
    //     console.log(result);
-   //
-   //
    // })
 
+
+    console.log("");
     //console.log(shoppers);
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -98,7 +99,7 @@
          {
             title: "Rich Dad Poor Dad",
             author: {
-                firstName: "Robert",
+                firstName: "Robert ",
                 lastName:  "Kiyosaki"
             }
         },
@@ -106,32 +107,32 @@
         {
             title: "Millionaire Next Door",
             author: {
-                firstName: "Thomas J.",
+                firstName: "Thomas J. ",
                 lastName: "Stanley"
             }
         },
 
         {
-            title:"The four hour work week",
+            title:"The Four Hour Work Week",
             author: {
-                firstName: "Tim",
-                lastName: " Ferriss"
+                firstName: "Tim ",
+                lastName: "Ferriss"
             }
         },
 
          {
-            title: "The intelligent Investor",
+            title: "The Intelligent Investor",
             author: {
-                firstName: "Benjamin",
-                lastName: " Graham"
+                firstName: "Benjamin ",
+                lastName: "Graham"
             }
         },
 
         {
             title: "Mastering Bitcoin",
             author: {
-                firstName: "Andreas M.",
-                lastName: " Antonopoulos"
+                firstName: "Andreas M. ",
+                lastName: "Antonopoulos"
             }
         }
 
@@ -139,10 +140,7 @@
 
 
 
-for(let i = 0; i < books.length; i++) {
 
-    console.log( books[i].title + "\n By " + books[i].author.firstName + books[i].author.lastName);
-}
 
 
     /**
@@ -170,6 +168,18 @@ for(let i = 0; i < books.length; i++) {
      *      ...
      */
 
+    // console.log("");
+    //
+    //
+    // for(let i = 0; i < books.length; i++) {
+    //
+    //     console.log( "Book # " + (i + 1) + " \n" + books[i].title + "\nBy " + books[i].author.firstName + books[i].author.lastName);
+    // }
+    //
+    //
+
+
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -181,4 +191,48 @@ for(let i = 0; i < books.length; i++) {
      *   `showBookInfo` function.
      */
 
+
+
+    function createBook (title, author) {
+
+        this.author = author;
+        this.title = title;
+    }
+
+ let newBook = new createBook("Fake Title", "Fake Author");
+
+
+    console.log("");
+
+    //console.log(newBook);
+
+    console.log("");
+
+
+const showBookInfo = (object) => {
+
+
+  //******************FIRST VERSION
+
+    // if (typeof object.author.firstName === "undefined") {
+    //
+    //     console.log("Book title is : " + object.title + "\nBy " + object.author)//.firstName.toString() + " " + object.author.lastName.toString());
+    // } else {
+    //
+    //     console.log("Book title is : " + object.title + "\nBy " + object.author.firstName + object.author.lastName);
+    // }
+
+  //*********************SECOND VERSION
+
+
+    console.log((typeof object.author.firstName === "undefined") ? `Book ${object.title}\nBy ${object.author}` : `Book : ${object.title}\nBy ${object.author.firstName + object.author.lastName}`)
+//
+ }
+
+
+    showBookInfo(books[0]);
+
+
 })();
+
+
