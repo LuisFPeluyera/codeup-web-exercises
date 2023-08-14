@@ -8,52 +8,54 @@
     <form method="POST" action="https://request-inspector.glitch.me/">
 
         <label for="email" >Email</label>
-        <input id="email" name="email" type="text" placeholder="Enter your email address">
+        <input required id="email" name="email" type="text" placeholder="Enter your email address">
         <br>
 
         <label for="password">Password</label>
-        <input id="password" name="password" type="password" placeholder="Enter your password">
+        <input required id="password" name="password" type="password" placeholder="Enter your password">
         <br>
 
 
-    </form>
 
-    <br>
 
-    <label for="bio">Bio</label>
-    <textarea id="bio" name="bio" placeholder="Tell us about yourself"></textarea>
+        <br><br><br>
 
-    <br>
-    <br>
-    <h4>How did you hear about us?</h4>
-        <label for="billboard">
-            <input id="billboard" type="radio" name="how did you hear about us?" value="billboard">Billboard
+        <label for="bio">Bio
+            <textarea required id="bio" name="Bio" placeholder="Tell us about yourself" rows="10" cols="40"></textarea>
         </label>
         <br>
-        <label for="radio advertisement">
-            <input id="radio advertisement" type="radio" name="how did you hear about us?" value="radio advertisement">Radio Advertisement
-        </label>
         <br>
-        <label for="internet advertisement">
-            <input id="internet advertisement" type="radio" name="how did you hear about us?" value="internet advertisement">Internet Advertisement
-        </label>
-        <br>
-        <label for="other">
-            <input id="other" type="radio" name="how did you hear about us?" value="other">Other
-        </label>
+        <h4>How did you hear about us?</h4>
+            <label for="billboard">
+                <input required id="billboard" type="radio" name="How did you hear about us?" value="billboard">Billboard
+            </label>
+            <br>
+            <label for="radio advertisement">
+                <input id="radio advertisement" type="radio" name="How did you hear about us?" value="radio advertisement">Radio Advertisement
+            </label>
+            <br>
+            <label for="internet advertisement">
+                <input id="internet advertisement" type="radio" name="How did you hear about us?" value="internet advertisement">Internet Advertisement
+            </label>
+            <br>
+            <label for="other">
+                <input id="other" type="radio" name="How did you hear about us?" value="other">Other
+            </label>
 
-    <br>
+        <br><br>
 
-    <label for="browser-using">What browser are you using?
-        <select name="browser-using" id="browser-using">
-            <option value="explorer">Explorer</option>
-            <option value="chrome">Chrome</option>
-            <option value="firefox">Fire Fox</option>
-            <option value="safari">Safari</option>
-        </select>
-    </label>
-    <br>
-    <input type="submit">
+        <label for="browser-using">What browser are you using?
+            <br>
+            <select required name="Browser-using" id="browser-using">
+                <option value="">Select One</option>
+                <option value="explorer">Explorer</option>
+                <option value="chrome">Chrome</option>
+                <option value="firefox">Fire Fox</option>
+                <option value="safari">Safari</option>
+            </select>
+        </label>
+        <br><br>
+        <button style="background-color: red; color: white" type="submit">SUBMIT</button>
 
     </form>
 </body>
