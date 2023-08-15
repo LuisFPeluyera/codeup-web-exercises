@@ -132,25 +132,21 @@
 
 
 
-// const maskify = str => {
-//     let input = str.toString()
-//     function toMaskify (input) {
-//         let lastFour = input.slice(-4);
-//         let firstPart = input.slice(0, input.length - 4).split("")
-//         let mappedArray = firstPart.map(mask)
-//             function mask()
-//         {
-//             return "#";
-//         }
-//
-//         return mappedArray.join("") + lastFour;
-//     }
-//
-//     return (input.length<=4) ? input : toMaskify(input);
-// }
-//
-//
-// console.log(maskify("test 54321"));
+const maskify = str => {
+    let input = str.toString()
+    function toMaskify (input) {
+        let lastFour = input.slice(-4);
+        let firstPart = input.slice(0, input.length - 4).split("")
+        let mappedArray = firstPart.map(x=>"#")
+
+        return mappedArray.join("") + lastFour;
+    }
+
+    return (input.length<=4) ? input : toMaskify(input);
+}
+
+
+console.log(maskify("123456789"));
 
 
 
