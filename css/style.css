@@ -1,4 +1,54 @@
 .fancy-header {
     color: purple;
     text-decoration: underline;
+    text-align: center;
+    border:5px double black;
+    padding: 10px;
+    border-radius: 9999999px ;
+}
+
+h2 {
+    text-decoration: underline;
+    font-family: 'Barriecito', cursive;
+}
+
+tr, td {
+    font-size: larger;
+    padding: 20px;
+}
+html {
+    background-color: beige;
+}
+
+main {
+    background-image: url("../img/pexels-photo-1939485.jpeg");
+
+}
+/* unvisited link (:link) */
+a:link {
+    color:red;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:black;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color:blue;
+}
+
+/* active/selected link (:active) */
+a:active {
+    color:green;
+}
+
+ul li{
+    list-style: armenian;
+}
+
+ol li{
+    list-style: lower-latin;
+
 }

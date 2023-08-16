@@ -1,0 +1,27 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+img{
+    max-width: 100%;
+}
+
+
+/*body > * {*/
+/*    background-color: aqua;*/
+/*    flex-grow: 10;*/
+
+/*}*/
+
+
+/*.flex-parent {*/
+/*    display: flex;*/
+/*    flex-direction: column; !* Stacks children vertically *!*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    gap: 20px;*/
+/*}*/
+
+
