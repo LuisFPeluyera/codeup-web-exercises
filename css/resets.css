@@ -1,27 +1,20 @@
 *{
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-
-img{
+img {
+    display: block;
     max-width: 100%;
 }
+input, input::placeholder{
+    font-family: inherit;
+}
+ul {
+    list-style: none;
+}
 
-
-/*body > * {*/
-/*    background-color: aqua;*/
-/*    flex-grow: 10;*/
-
-/*}*/
-
-
-/*.flex-parent {*/
-/*    display: flex;*/
-/*    flex-direction: column; !* Stacks children vertically *!*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    gap: 20px;*/
-/*}*/
-
-
+a {
+    color: inherit;
+    text-decoration: unset;
+}

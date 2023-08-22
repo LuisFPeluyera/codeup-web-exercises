@@ -1,0 +1,121 @@
+@import "position-lecture-base.css";
+
+    /* This is the file we will use to experiment with flexbox */
+.container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: white;
+
+}
+
+#item-9 {
+    position: absolute;
+    top: 0px;
+    right: -200px;
+    height: 100%;
+    transition: all ease 0.3s;
+}
+
+.container:hover #item-9 {
+    right: 0px;
+}
+
+.thumbnail-wrapper {
+    width: 300px;
+    aspect-ratio: 4/3;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.thumbnail-wrapper img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: all ease 0.3s;
+
+}
+
+.thumbnail-wrapper:hover img {
+    transform: scale(5.2)
+}
+
+.thumbnail-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.8);
+    opacity: 0;
+    transition: all ease 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.thumbnail-wrapper:hover .thumbnail-overlay {
+    opacity: 1;
+}
+
+.thumbnail-overlay img {
+    width: 30px;
+    height: 30px;
+}
+
+/*#item-5 {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    right: 0;*/
+/*    z-index: 0;*/
+/*}*/
+
+/*.overlay {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    height: 100%;*/
+/*    width: 100%;*/
+/*    background-color: rgba(0,0,0,0.8);*/
+/*    pointer-events: none;*/
+/*    opacity: 0;*/
+/*    display: all ease 0.3s;*/
+/*}*/
+
+/*.container:hover .overlay{*/
+/*   opacity: 1;*/
+/*    pointer-events: all;*/
+/*}*/
+
+.bg-element {
+    position: absolute;
+    height: 100px;
+    width: 300px;
+    background-color: grey;
+    top: 20%;
+    left: 50px;
+    z-index: 2;
+}
+
+.item {
+    position: relative;
+    z-index: 3;
+}
+
+.page-banner {
+    width: 100;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #eee;
+    border-bottom: 1px solid #000;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+}
