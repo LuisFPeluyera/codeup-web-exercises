@@ -37,8 +37,8 @@ label.input-group {
 }
 
 label.input-group span {
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 700;
 }
 
 label.checkbox {
@@ -82,7 +82,7 @@ button.btn.btn-login {
 .wavy-lines-1 {
     position: absolute;
     top: 167px;
-    left: 0px;
+    left: 10px;
 }
 .wavy-lines-2{
     position: absolute;
@@ -91,12 +91,42 @@ button.btn.btn-login {
 }
 .dots-2{
     position: absolute;
-    top: 0px;
-    right: 81px;
+    top: 10px;
+    right:81px;
+}
+
+.container.login {
+    position: relative;
 }
 .x{
+    position: absolute;
+    top: -20px;
+    right: -20px;
+}
+.footer-wave-bottom {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+}
+.footer-wave-top{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 2;
+}
+.column.register-now{
+    /*position: absolute;*/
+    bottom: -5px;
+}
+.column.register-now p {
+    color: #ABAFB3;
+}
+.column.register-now a{
+    color: #7F63F4;
+    font-weight: bold;
 
 }
-
 
 .container log
