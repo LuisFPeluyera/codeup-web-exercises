@@ -1,0 +1,43 @@
+
+:root {
+    --clr-primary-gray: #F7F7F7
+}
+
+h1 {
+    background-color:#ffffff;
+    position: absolute;
+    top: 5em;
+    width: 100%;
+    text-align: center;
+}
+
+h3 {
+    background-color:#0C6DFD;
+    color: #FFFFFF;
+    font-size: 16px;
+}
+
+.search-store-button {
+    max-height: 4vh;
+    padding-right: 5;
+    font-size: 16px;
+
+
+}
+.selection-header {
+    background-color: var(--clr-primary-gray);
+    margin: 0;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+p.selection-header{
+    border: 1px solid var(--clr-primary-gray);
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+label.selection-header{
+    background-color: var(--clr-primary-gray);
+}
+.size-list-1 {
+    margin-bottom: 20px;
+}
