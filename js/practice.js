@@ -17,7 +17,42 @@
 
 const filterArray = (arr) => {return arr.filter(x =>  typeof x !== 'string')}
 
-console.log(filterArray([1, 2, "aasf", "1", "123", 123]));
+// console.log(filterArray([1, 2, "aasf", "1", "123", 123]));
+//
+// document.write(filterArray([1, 2, "aasf", "1", "123", 123]))
 
-document.write(filterArray([1, 2, "aasf", "1", "123", 123]))
 
+
+// Write a function named isPositive that accepts a number and returns true or false based on whether the input is positive.
+// isPositive(3) //true
+// isPositive(10) //true
+// isPositive(-2) //false
+// ~~~
+//  Count total pets
+//  Write a function named totalPets that accepts an array of objects where each object represents a person, and has a 'pets' property for their owned pets. The function should return the sum of every object's numPets property.
+//
+//  Examples
+//  totalPets([
+//        {name: 'Fernando Mendoza', pets: 1},
+//         {name: 'Douglas Hirsh', pets: 8},
+//        {name: 'Kenneth Howell', pets: 2}
+//     ]) ➞ 11
+// ~~~
+// Write a function called convertLocationToObject - this object will take in a string of a city and state separated by a comma: “Austin, Texas”, “San Francisco, California”, “Auburn, New York”. Your function should take the string and create an object with a cityName property and stateName property.
+// convertLocationToObject(“Austin, Texas”) // {cityName: “Austin”, stateName: “Texas”}
+// convertLocationToObject(“Auburn, New York) // {cityName: “Auburn”, stateName: “New York”}
+// ~~~
+// Write a function named triple that accepts a number and returns that number tripled.
+// triple(5) //15
+// triple(12) //26
+// triple(-2) // -6
+// ~~~
+// Write a function named removeOdds. This function will accept an array of numbers and remove all odd numbers from the array.
+// removeOdds([2, 4, 6]) // [2, 4, 6]
+// removeOdds([7, 3, 2]) // [2]
+// removeOdds([1, 11, 111]) // []
+// ~~~
+// Write a function called countXs - countXs should accept a string and return the number of times the character ‘x’ is in the string (lower or upper case).
+// countXs(“All my exes live in Texas”) //2
+// countXs(“Hello world”) //0
+// countXs(“X-rays have a limited amount of radiation to them”) //1
