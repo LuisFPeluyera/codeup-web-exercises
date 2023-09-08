@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Konami Code</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Vollkorn&display=swap" rel="stylesheet">
+  <style>
+    #populate {
+      height: 100vw;
+      width: 80vw;
+      margin: 0 auto;
+    }
+    #typewriter {
+      color: #33ff00;
+      margin-bottom: 1em;
+      font-family: 'Vollkorn', serif;
+
+    }
+    body {
+      background-color: black;
+    }
+
+    #reset {
+      background-color: black;
+      border: none;
+      color: #ffcc00;
+      font-family: 'Source Code Pro', monospace;
+
+    }
+  </style>
+</head>
+<body>
+<p id="typewriter"></p>
+
+
+<div id="populate"></div>
+<button id="reset">reset</button>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+  "use strict";
+  var keyspressed = '';
+  var i = 0;
+  var txt = "would you like to play a game . . . ?";
+  var speed = 80;
+  var starcraft = "8472698269738378796779877669866976";
+  // thereisnocowlevel
+  var konami = "3838404037393739666513";
+  // up up dn dn lft rght lft rght b a enter
+  var aoe2 = "72798768797384858278847273837978";
+  // howdoiturnthison
+  var shadows = "8765778065838479778065";
+  // wampastompa
+
+  $(document).ready(typeWriter());
+
+  $(document).keyup(function(event){
+    keyspressed += event.keyCode.toString();
+    console.log(keyspressed);
+    if (keyspressed.includes(ken_example)) {
+      $("#populate").css({'background-image':'url(img/konamicode.jpg', 'background-size':'contain', 'background-repeat':'no-repeat'});
+      var obj = document.createElement("audio");
+      alert("30 lives added.");
+      obj.src = "audio/metal_gear_alert.mp3";
+      obj.play();
+      keyspressed = '';
+    } else if (keyspressed.includes(starcraft)) {
+      $("#populate").css({'background-image':'url(img/starcraft.jpg', 'background-size':'contain', 'background-repeat':'no-repeat'});
+      var obj = document.createElement("audio");
+      obj.src = "audio/nuclearlaunchdetected.wav";
+      obj.play();
+      keyspressed = '';
+    } else if (keyspressed.includes(aoe2)){
+      $("#populate").css({'background-image':'url(img/aoe2cobra.jpg', 'background-size':'contain', 'background-repeat':'no-repeat'});
+      var obj = document.createElement("audio");
+      obj.src = "audio/wololo.mp3";
+      obj.play();
+      keyspressed = '';
+    } else if (keyspressed.includes(shadows)) {
+      $("#populate").css({'background-image':'url(img/shadows.jpg', 'background-size':'contain', 'background-repeat':'no-repeat'});
+      var obj = document.createElement("audio");
+      obj.src = "audio/destiny.mp3";
+      obj.play();
+      keyspressed = '';
+    }
+  });
+
+  //
+  function typeWriter() {
+    if (i < txt.length) {
+      if(txt.charAt(i) === "?"){
+        $("#typewriter").append('<span class="blink">?</span>')
+      } else {
+        document.getElementById("typewriter").innerHTML += txt.charAt(i);
+      }
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+
+  $("#reset").click(function(e){
+    location.reload();
+  })
+
+  setInterval(function()
+  { setTimeout(function() {
+    $(".blink").css("visibility","hidden");
+  },500);
+    $(".blink").css("visibility","visible");
+  },1000);
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>keyboard events</title>
+	<link rel="stylesheet" href="css/layout.css">
+	<link rel="stylesheet" href="css/resets.css">
+</head>
+<body>
+<div class="column justify-content-center flex-column align-items-center flex-grow" id="populate">
+	<h1>currently you've typed:</h1>
+	<div id="currentTypingCode"></div>
+	<br>
+	<div id="currentTypingStr"></div>
+
+
+	<button id="refresh">Reset Variable (click here)</button>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script>
+
+    // const audio = new Audio(“https://www.fesliyanstudios.com/play-mp3/387”);
+    // const buttons = $("button")
+
+    $(function() {
+        // let secretPwKeyCode = "38384040373937396665";
+        let secretPwKeyCode = "49";
+        let inputStrKeyCode = "";
+
+        let secretPwCharacters = "red";
+        let inputStrCharacters = "";
+
+
+
+        $("body").on("keyup", (e) => {
+            console.log("event object property 'originalEvent':")
+            console.log(e.originalEvent);
+            console.log("keycode: " + e.originalEvent.keyCode);
+            console.log("key: " + e.originalEvent.key);
+
+            inputStrKeyCode += e.originalEvent.keyCode;
+
+            inputStrCharacters += e.originalEvent.key;
+
+            //
+            if(inputStrKeyCode === secretPwKeyCode){
+                // alert("You have added 30 lives!");
+                $("body").css({'background-image':'url(img/twitter-logo.png', 'background-size':'contain', 'background-repeat':'no-repeat'});
+                var obj = document.createElement("audio");
+                obj.src = "audio/drum-roll.mp3";
+                obj.play();
+                inputStrKeyCode = "";
+                inputStrCharacters = "";
+            }
+
+            if(inputStrCharacters === secretPwCharacters){
+                $("body").css("background-color", "red");
+                inputStrKeyCode = "";
+                inputStrCharacters = "";
+            }
+
+
+            $("#currentTypingStr").text(inputStrCharacters);
+
+            $("#currentTypingCode").text(inputStrKeyCode);
+        })
+
+        $("#refresh").on("click", () => {
+            location.reload();
+        })
+    });
+</script>
+</body>
+</html>
