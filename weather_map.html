@@ -23,7 +23,7 @@
       transition: 2s;
     }
     .card:hover {
-      transform: scale(1.15);
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -93,7 +93,13 @@
                       <script src="./js/keys.js"></script>
                       <script src="js/mapbox-geocoder-utils.js"></script>
                       <script>
-
+                        mapboxgl.accessToken = DEFAULT_PUBLIC_TOKEN
+                        const map = new mapboxgl.Map({
+                          container: 'map', // container ID
+                          style: 'mapbox://styles/mapbox/satellite-v9', // style URL
+                          center: [-98.489615, 29.426827], // starting position [lng, lat]
+                          zoom: 9, // starting zoom
+                        });
                       </script>
 
 
