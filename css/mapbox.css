@@ -1,0 +1,49 @@
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.card{
+    background-color: #198754;
+    transition: 2s;
+    opacity: 90%;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.card-body p {
+    margin-bottom: unset;
+}
+.weather-icon-wrapper {
+    height: 75px;
+    width: 75px;
+    position: relative;
+
+}
+.weather-icon-wrapper img {
+    position: absolute;
+}
+#map {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.container-fluid.custom-bg {
+    position: relative;
+    background-color: rgb(255 255 255 / 61%);
+    margin-bottom: 20px;
+}
+input#address-search-input {
+    background: unset;
+    border: 2px solid green;
+}
+#address-search-button {
+    border: 2px solid green;
+}

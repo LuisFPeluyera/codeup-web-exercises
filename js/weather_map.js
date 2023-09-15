@@ -19,15 +19,38 @@ let marker = new mapboxgl.Marker({
     .setLngLat([-98.4946, 29.4252])
     .addTo(map);
 
+
+
 // TODO            Variables needed for each img for weather condition to display img that represents the current condition
 
-//TODO      need to finish or replace with something else, maybe export them form Mapbox or another website ...
+//TODO      need to finish or replace with something else, maybe export them from Mapbox or another website ...
 let sunny = "<box-icon name='sun'></box-icon>";
 
 let cloudy = "<box-icon name='cloud' ></box-icon>"
 
 
 ///////////////////////////////////////////////////// FUNCTIONS
+
+// function to build a single forecast card
+const buildForecastCard = (data, i) => {
+    let html = `
+        <div class="card text-bg-success mb-3 position-relative" style="width: 14rem;">
+          <div class="card-header">${epochConverter(data.list[i].dt)}</div>
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">${data.city.name}</h5>
+                <p id="condition-img"></p>
+                <p class="card-text">${data.list[i].weather[0].description}</p>
+                <div class="weather-icon-wrapper d-flex justify-content-center align-items-center align-self-center">
+                    <img alt="weather-condition" class="d-block" src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png"/>
+                </div>
+                <p class="card-text">Temp: ${data.list[i].main.temp.toFixed()} F&deg</p>
+                <p class="card-text">Feels like: ${data.list[i].main.feels_like.toFixed()} F&deg</p>
+                <p class="card-text">${data.list[i].main.temp_min.toFixed()} / ${data.list[i].main.temp_max.toFixed()} F&deg</p>
+                <p class="card-text">Humidity: ${data.list[i].main.humidity}%</p>
+            </div>
+        </div>`;
+    return html;
+}
 
 // function to convert dt to date
 const epochConverter = (epoch)=>{
@@ -48,6 +71,7 @@ const onDragUpdateWeather = () =>{
     const lngLat = marker.getLngLat();
     console.log(lngLat);
 
+    // this get request is displayed when marker dropped
     $.get(FIVE_DAY_WEATHER + `lat=${lngLat.lat}&lon=${lngLat.lng}&appid=${WEATHER_MAP_KEY}`).done((data)=> {
         console.log(data);
         map.flyTo({
@@ -60,18 +84,7 @@ const onDragUpdateWeather = () =>{
         for (let i = 0; i < data.list.length; i+=8) {
 
 
-            html +=     `<div class="card text-bg-success mb-3" style="width: 14rem;">
-                                  <div class="card-header">${epochConverter(data.list[i].dt)}</div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">${data.city.name}</h5>
-                                        <p id="condition-img"></p>
-                                        <p class="card-text">${data.list[i].weather[0].description}</p>
-                                        <p class="card-text">Temp: ${kelvinToFahrenheit(data.list[i].main.temp)} F&deg</p>
-                                        <p class="card-text">Feels like: ${kelvinToFahrenheit(data.list[i].main.feels_like)} F&deg</p>
-                                        <p class="card-text">${kelvinToFahrenheit(data.list[i].main.temp_min)} / ${kelvinToFahrenheit(data.list[i].main.temp_max)} F&deg</p>
-                                        <p class="card-text">Humidity: ${data.list[i].main.humidity}%</p>
-                                    </div>
-                                </div>`
+            html += buildForecastCard(data, i);
 
             // sets the weather cards in the DOM
             $("#forecast-weather").html(html);
@@ -104,18 +117,7 @@ $.get(FIVE_DAY_WEATHER + `q=san antonio,tx , usa&appid=${WEATHER_MAP_KEY}&units=
     for (let i = 0; i < data.list.length; i+=8) {
 
 
-        html +=     `<div class="card text-bg-success mb-3" style="width: 14rem;">
-                                  <div class="card-header">${epochConverter(data.list[i].dt)}</div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">${data.city.name}</h5>
-                                        <p id="condition-img"></p>
-                                        <p class="card-text">${data.list[i].weather[0].description}</p>
-                                        <p class="card-text">Temp: ${data.list[i].main.temp.toFixed()} F&deg</p>
-                                        <p class="card-text">Feels like: ${data.list[i].main.feels_like.toFixed()} F&deg</p>
-                                        <p class="card-text">${data.list[i].main.temp_min.toFixed()} / ${data.list[i].main.temp_max.toFixed()} F&deg</p>
-                                        <p class="card-text">Humidity: ${data.list[i].main.humidity}%</p>
-                                    </div>
-                                </div>`
+        html += buildForecastCard(data, i);
 
         $("#forecast-weather").html(html);
 
@@ -144,8 +146,7 @@ $("#address-search-button").on("click",function(e){
         //this line centers the marker in the user input
          marker.setLngLat(result);
 
-        // this is for adding the new get request to update with the marker drag
-        console.log(`https://api.openweathermap.org/data/2.5/forecast?lat=${result[1]}&lon=${result[0]}&appid=${WEATHER_MAP_KEY}`);
+
 
     });// end of geocode function
 
@@ -159,18 +160,7 @@ $("#address-search-button").on("click",function(e){
         // loop to create the weather cards and display them on the DOM
         for (let i = 0; i < data.list.length; i+=8) {
 
-            html +=     `<div class="card text-bg-success mb-3" style="width: 14rem;">
-                                  <div class="card-header">${epochConverter(data.list[i].dt)}</div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">${data.city.name}</h5>
-                                        <p id="condition-img"></p>
-                                        <p class="card-text">${data.list[i].weather[0].description}</p>
-                                        <p class="card-text">Temp: ${data.list[i].main.temp.toFixed()} F&deg</p>
-                                        <p class="card-text">Feels like: ${data.list[i].main.feels_like.toFixed()} F&deg</p>
-                                        <p class="card-text">${data.list[i].main.temp_min.toFixed()} / ${data.list[i].main.temp_max.toFixed()} F&deg</p>
-                                        <p class="card-text">Humidity: ${data.list[i].main.humidity}%</p>
-                                    </div>
-                                </div>`
+            html += buildForecastCard(data, i);
 
             // sets the weather cards in the DOM
             $("#forecast-weather").html(html);
@@ -186,8 +176,23 @@ $("#address-search-button").on("click",function(e){
 
 
 
+//TODO add feature to go to pin when clicke
 
+//TODO add option for different filters
 
+//TODO make it responsive
 
+//TODO add the random location weather forecast feature
 
+//TODO finish styling
 
+//TODO below is a function to make the map fly to random location
+//document.getElementById('fly').addEventListener('click', () => {
+// // Fly to a random location
+// map.flyTo({
+// center: [(Math.random() - 0.5) * 360, (Math.random() - 0.5) * 100],
+// essential: true // this animation is considered essential with respect to prefers-reduced-motion
+// });
+// });
+
+//TODO add a div that displays random info about the random location...maybe
