@@ -12,6 +12,9 @@ let html= ``;
 // variable captures the user input
 let  userInput = ``;
 
+// var captures weather condition to display bg img depending on condition
+let weatherCondition = ``;
+
 // marker created to be displayed on the map
 let marker = new mapboxgl.Marker({
     draggable: true
@@ -21,20 +24,14 @@ let marker = new mapboxgl.Marker({
 
 
 
-// TODO            Variables needed for each img for weather condition to display img that represents the current condition
-
-//TODO      need to finish or replace with something else, maybe export them from Mapbox or another website ...
-let sunny = "<box-icon name='sun'></box-icon>";
-
-let cloudy = "<box-icon name='cloud' ></box-icon>"
-
-
 ///////////////////////////////////////////////////// FUNCTIONS
 
 // function to build a single forecast card
 const buildForecastCard = (data, i) => {
+
+
     let html = `
-        <div class="card mb-3 position-relative" style="width: 14rem;">
+        <div id="wrapper-bg" class="card bg-primary mb-3 position-relative" style="width: 14rem;">
           <div class="card-header">${epochConverter(data.list[i].dt)}</div>
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title">${data.city.name}</h5>

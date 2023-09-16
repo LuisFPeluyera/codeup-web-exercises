@@ -15,7 +15,7 @@
  * The original order must be maintained.
  */
 
-const filterArray = (arr) => {return arr.filter(x =>  typeof x !== 'string')}
+// const filterArray = (arr) => {return arr.filter(x =>  typeof x !== 'string')}
 
 // console.log(filterArray([1, 2, "aasf", "1", "123", 123]));
 //
@@ -56,3 +56,45 @@ const filterArray = (arr) => {return arr.filter(x =>  typeof x !== 'string')}
 // countXs(“All my exes live in Texas”) //2
 // countXs(“Hello world”) //0
 // countXs(“X-rays have a limited amount of radiation to them”) //1
+
+
+let weatherCondition = ``;
+
+//TODO links for bg vid for weather map
+
+function setBackgroundImg (main) {
+// Backgrounds
+    switch (main) {
+        case "Snow":
+            document.getElementById("wrapper-bg").style.backgroundImage =
+                "url('https://mdbgo.io/ascensus/mdb-advanced/img/snow.gif')";
+            break;
+        case "Clouds":
+            document.getElementById("wrapper-bg").style.backgroundImage =
+                "url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')";
+            break;
+        case "Fog":
+            document.getElementById("wrapper-bg").style.backgroundImage =
+                "url('https://mdbgo.io/ascensus/mdb-advanced/img/fog.gif')";
+            break;
+        case "Rain":
+            document.getElementById("wrapper-bg").style.backgroundImage =
+                "url('https://mdbgo.io/ascensus/mdb-advanced/img/rain.gif')";
+            break;
+        case "Clear":
+            document.getElementById("wrapper-bg").style.backgroundImage =
+                "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
+            break;
+        case "Thunderstorm":
+            document.getElementById("wrapper-bg").style.backgroundImage =
+                "url('https://mdbgo.io/ascensus/mdb-advanced/img/thunderstorm.gif')";
+            break;
+        default:
+            document.getElementById("wrapper-bg").style.backgroundImage =
+                "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
+            break;
+
+    }//end of switch
+
+
+}//end of function
