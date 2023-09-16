@@ -34,7 +34,7 @@ let cloudy = "<box-icon name='cloud' ></box-icon>"
 // function to build a single forecast card
 const buildForecastCard = (data, i) => {
     let html = `
-        <div class="card text-bg-success mb-3 position-relative" style="width: 14rem;">
+        <div class="card mb-3 position-relative" style="width: 14rem;">
           <div class="card-header">${epochConverter(data.list[i].dt)}</div>
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title">${data.city.name}</h5>
@@ -72,7 +72,7 @@ const onDragUpdateWeather = () =>{
     console.log(lngLat);
 
     // this get request is displayed when marker dropped
-    $.get(FIVE_DAY_WEATHER + `lat=${lngLat.lat}&lon=${lngLat.lng}&appid=${WEATHER_MAP_KEY}`).done((data)=> {
+    $.get(FIVE_DAY_WEATHER + `lat=${lngLat.lat}&lon=${lngLat.lng}&appid=${WEATHER_MAP_KEY}&units=imperial`).done((data)=> {
         console.log(data);
         map.flyTo({
             center: lngLat,
@@ -107,7 +107,7 @@ const onDragUpdateWeather = () =>{
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // this get request is displayed on page load, then is overridden by the search input submitting button or by dragging and dropping the marker
-$.get(FIVE_DAY_WEATHER + `q=san antonio,tx , usa&appid=${WEATHER_MAP_KEY}&units=imperial`).done((data)=>{
+$.get(FIVE_DAY_WEATHER + `q=san antonio, usa&appid=${WEATHER_MAP_KEY}&units=imperial`).done((data)=>{
 
 
     // console logs data from five day forecast

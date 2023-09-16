@@ -40,6 +40,7 @@ let meObject = {
 
 
 
+
 // TODO: replace the `var` keyword with `const`, then try to reassign a variable
 // declared as `const`
 var name = 'your_name_here';

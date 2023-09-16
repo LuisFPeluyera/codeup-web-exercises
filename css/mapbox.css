@@ -1,6 +1,28 @@
+
+
+:root {
+    --primary-dark: #081b29;
+    --primary-ligth:rgb(237, 237, 237);
+    --primary-blue:rgb(72 181 231);
+}
+
+
+body {
+
+    font-weight: bold;
+    color: var(--primary-ligth);
+
+}
+
+
 a {
     text-decoration: none;
-    color: unset;
+    color: unset !important;
+}
+
+a:active {
+    text-decoration: none;
+    color: unset !important;
 }
 
 .page-wrapper {
@@ -9,9 +31,8 @@ a {
     min-height: 100vh;
 }
 .card{
-    background-color: #198754;
+    background-color: rgb(72 181 231 / 51%);
     transition: 2s;
-    opacity: 90%;
 }
 .card:hover {
     transform: scale(1.05);
@@ -37,12 +58,12 @@ a {
 }
 .container-fluid.custom-bg {
     position: relative;
-    background-color: rgb(255 255 255 / 61%);
+    background-color: rgb(255 255 255 / 51%);
     margin-bottom: 20px;
 }
 input#address-search-input {
     background: unset;
-    border: 2px solid green;
+    border: 2px solid ;
 }
 #address-search-button {
     border: 2px solid green;
