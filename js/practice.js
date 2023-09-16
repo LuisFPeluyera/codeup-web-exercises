@@ -57,44 +57,114 @@
 // countXs(“Hello world”) //0
 // countXs(“X-rays have a limited amount of radiation to them”) //1
 
+//
+// let weatherCondition = ``;
+//
+// //TODO links for bg vid for weather map
+//
+// function setBackgroundImg (main) {
+// // Backgrounds
+//     switch (main) {
+//         case "Snow":
+//             document.getElementById("wrapper-bg").style.backgroundImage =
+//                 "url('https://mdbgo.io/ascensus/mdb-advanced/img/snow.gif')";
+//             break;
+//         case "Clouds":
+//             document.getElementById("wrapper-bg").style.backgroundImage =
+//                 "url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')";
+//             break;
+//         case "Fog":
+//             document.getElementById("wrapper-bg").style.backgroundImage =
+//                 "url('https://mdbgo.io/ascensus/mdb-advanced/img/fog.gif')";
+//             break;
+//         case "Rain":
+//             document.getElementById("wrapper-bg").style.backgroundImage =
+//                 "url('https://mdbgo.io/ascensus/mdb-advanced/img/rain.gif')";
+//             break;
+//         case "Clear":
+//             document.getElementById("wrapper-bg").style.backgroundImage =
+//                 "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
+//             break;
+//         case "Thunderstorm":
+//             document.getElementById("wrapper-bg").style.backgroundImage =
+//                 "url('https://mdbgo.io/ascensus/mdb-advanced/img/thunderstorm.gif')";
+//             break;
+//         default:
+//             document.getElementById("wrapper-bg").style.backgroundImage =
+//                 "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
+//             break;
+//
+//     }//end of switch
+//
+//
+// }//end of function
 
-let weatherCondition = ``;
 
-//TODO links for bg vid for weather map
+function weatherBg(main) {
+    if (main.includes("snow")) {
 
-function setBackgroundImg (main) {
-// Backgrounds
-    switch (main) {
-        case "Snow":
-            document.getElementById("wrapper-bg").style.backgroundImage =
-                "url('https://mdbgo.io/ascensus/mdb-advanced/img/snow.gif')";
-            break;
-        case "Clouds":
-            document.getElementById("wrapper-bg").style.backgroundImage =
-                "url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')";
-            break;
-        case "Fog":
-            document.getElementById("wrapper-bg").style.backgroundImage =
-                "url('https://mdbgo.io/ascensus/mdb-advanced/img/fog.gif')";
-            break;
-        case "Rain":
-            document.getElementById("wrapper-bg").style.backgroundImage =
-                "url('https://mdbgo.io/ascensus/mdb-advanced/img/rain.gif')";
-            break;
-        case "Clear":
-            document.getElementById("wrapper-bg").style.backgroundImage =
-                "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
-            break;
-        case "Thunderstorm":
-            document.getElementById("wrapper-bg").style.backgroundImage =
-                "url('https://mdbgo.io/ascensus/mdb-advanced/img/thunderstorm.gif')";
-            break;
-        default:
-            document.getElementById("wrapper-bg").style.backgroundImage =
-                "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
-            break;
+        console.log("snow");
+        // $(this).css("background-image", "url(`img/weather-app/snow.gif`)");
 
-    }//end of switch
+    } else if (main.includes("clear")) {
+
+        console.log("clear");
+        //$(this).css("background-image", "url(`img/weather-app/clear.gif`)");
+
+    } else if (main.includes("clouds")) {
+
+        console.log("clouds");
+        //$(this).css("background-image", "url(`img/weather-app/clouds.gif`)");
+
+    } else if (main.includes("fog")) {
+
+        console.log("fog");
+        //$(this).css("background-image", "url(`img/weather-app/fog.gif`)");
+
+    } else if (main.includes("rain")) {
+
+        console.log("rain");
+       // $(this).css("background-image", "url(`img/weather-app/rain.gif`)");
+
+    } else if (main.includes("thunderstorm")) {
+
+        console.log("thunderstorm");
+       // $(this).css("background-image", "url(`img/weather-app/thunderstorm.gif`)");
+    } else {
+
+        console.log("something is wrong");
+    }// end of if statements
+
+}// end of function weatherBG
+
+//TODO TEST JQUERY EVENT LISTENER IT WORKS
+$("body").on("click",(e) =>{
+
+    console.log(e.target);
+    $(e.target).css({
+        "background-image": `url("/img/weather-app/clouds.gif")`,
+        "color": "black"
+    } )
+
+})
 
 
-}//end of function
+
+$("#address-search-button").on("click",(e) =>{
+
+    console.log(e.target);
+    $(e.target).css({
+        "background-image": `url("/img/weather-app/clouds.gif")`,
+        "color": "black"
+    } )
+
+})
+
+
+
+// function example(main) {
+//     return condition1 ? value1
+//         : condition2 ? value2
+//         : condition3 ? value3
+//         : value4;
+// }

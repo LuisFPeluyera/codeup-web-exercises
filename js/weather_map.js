@@ -22,29 +22,96 @@ let marker = new mapboxgl.Marker({
     .setLngLat([-98.4946, 29.4252])
     .addTo(map);
 
-
+$(".company-logo").on("click",()=>{
+    map.flyTo({
+    center: [-98.4946, 29.4252],
+    essential: true,
+    zoom: 13
+    });
+    marker.setLngLat([-98.4946, 29.4252])
+});
 
 ///////////////////////////////////////////////////// FUNCTIONS
+
+
+//TODO NEED TO FIGURE OUT WHY ITS NOT WORKING
+// function to assign bg img based on condition
+function weatherBg(main) {
+    if (main.includes("Snow")) {
+
+        console.log("snow");
+        $("body").css({
+            "background-image": `url("/img/weather-app/snow.gif")`
+
+        });
+
+    } else if (main.includes("Clear")) {
+
+        console.log("clear");
+        $("body").css({
+            "background-image": `url("/img/weather-app/clear.gif")`
+
+        });
+
+    } else if (main.includes("Clouds")) {
+
+        console.log("clouds");
+        $("body").css({
+            "background-image": `url("/img/weather-app/clouds.gif")`
+
+        });
+
+    } else if (main.includes("Fog")) {
+
+        console.log("fog");
+        $("body").css({
+            "background-image": `url("/img/weather-app/fog.gif")`
+        });
+
+    } else if (main.includes("Rain")) {
+
+        console.log("rain");
+        $("#address-search-button, .container-fluid.custom-bg").css({
+            "background-image": `url("/img/weather-app/rain.gif")`
+        });
+
+    } else if (main.includes("Thunderstorm")) {
+
+        console.log("thunderstorm");
+        $("body").css({
+            "background-image": `url("/img/weather-app/thunderstorm.gif")`
+
+        });
+    } else {
+
+        console.log("something is wrong");
+
+    }// end of if statements
+
+}// end of function weatherBG
+
 
 // function to build a single forecast card
 const buildForecastCard = (data, i) => {
 
 
     let html = `
-        <div id="wrapper-bg" class="card bg-primary mb-3 position-relative" style="width: 14rem;">
-          <div class="card-header">${epochConverter(data.list[i].dt)}</div>
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">${data.city.name}</h5>
-                <p id="condition-img"></p>
-                <p class="card-text">${data.list[i].weather[0].description}</p>
-                <div class="weather-icon-wrapper d-flex justify-content-center align-items-center align-self-center">
-                    <img alt="weather-condition" class="d-block" src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png"/>
+        
+        <div class="card-wrapper">
+                <div class="card mb-3 position-relative" style="width: 14rem;">
+                  <div class="card-header">${epochConverter(data.list[i].dt)}</div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">${data.city.name}</h5>
+                        <p class="card-text">${data.list[i].weather[0].description}</p>
+                        <div class="d-flex align-items-center justify-content-center">
+                        <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png"/>
+                        </div>
+                        <p class="card-text">Temp: ${data.list[i].main.temp.toFixed()} F&deg</p>
+                        <p class="card-text">Feels like: ${data.list[i].main.feels_like.toFixed()} F&deg</p>
+                        <p class="card-text">${data.list[i].main.temp_min.toFixed()} / ${data.list[i].main.temp_max.toFixed()} F&deg</p>
+                        <p class="card-text">Humidity: ${data.list[i].main.humidity}%</p>
+                    </div>
                 </div>
-                <p class="card-text">Temp: ${data.list[i].main.temp.toFixed()} F&deg</p>
-                <p class="card-text">Feels like: ${data.list[i].main.feels_like.toFixed()} F&deg</p>
-                <p class="card-text">${data.list[i].main.temp_min.toFixed()} / ${data.list[i].main.temp_max.toFixed()} F&deg</p>
-                <p class="card-text">Humidity: ${data.list[i].main.humidity}%</p>
-            </div>
         </div>`;
     return html;
 }
@@ -113,12 +180,26 @@ $.get(FIVE_DAY_WEATHER + `q=san antonio, usa&appid=${WEATHER_MAP_KEY}&units=impe
     // loop to create the weather cards and display them on the DOM
     for (let i = 0; i < data.list.length; i+=8) {
 
+        //TODO THIS IS FOR THE FUNCTION TO ADD BG IMG.... have to figure out where to put it or refactor to get the function that creates the card also assign bg...
+        //this var is to capture the data condition and assign a bg img(gif) to the card
+        weatherCondition += data.list[i].weather[0].main;
 
+        //function being called to build the weather cards
         html += buildForecastCard(data, i);
 
+
+        // sets the weather cards in the DOM
         $("#forecast-weather").html(html);
 
+        //TODO FUNCTION CALLED TO DISPLAY BG IMG
+        //TODO MAYBE NEED TO REMOVE......
+        weatherBg(html);
+
     }// end of for loop
+
+    //TODO NEXT TO CONSOLE LOGS WILL BE REMOVED, JUST FOR FUNCTION  weatherCondition TESTING
+    console.log(weatherCondition);
+    console.log(html);
 
     //rests html variable
     html = ``;
@@ -128,9 +209,9 @@ $.get(FIVE_DAY_WEATHER + `q=san antonio, usa&appid=${WEATHER_MAP_KEY}&units=impe
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // user input event listener and  function to do a get request, UPDATE CARDS & fly to and center map on inputted location
-$("#address-search-button").on("click",function(e){
+$("#search-btn").on("click",function(e){
     e.preventDefault();
-     userInput = $('#address-search-input').val();
+     userInput = $('#search-input').val();
     geocode(userInput, DEFAULT_PUBLIC_TOKEN).then(function(result) {
         console.log(result);
         map.flyTo({
@@ -171,19 +252,14 @@ $("#address-search-button").on("click",function(e){
 });// end of search button event listener
 
 
+//TODO
 
 
-//TODO add feature to go to pin when clicke
-
-//TODO add option for different filters
-
-//TODO make it responsive
-
-//TODO add the random location weather forecast feature
 
 //TODO finish styling
 
-//TODO below is a function to make the map fly to random location
+//TODO add the random location weather forecast feature ....MAYBE
+//TODO below is a function to make the map fly to random location to maybe add as an extra feature.... MAYBE
 //document.getElementById('fly').addEventListener('click', () => {
 // // Fly to a random location
 // map.flyTo({
@@ -192,4 +268,8 @@ $("#address-search-button").on("click",function(e){
 // });
 // });
 
-//TODO add a div that displays random info about the random location...maybe
+
+
+
+
+

@@ -2,19 +2,30 @@
 
 :root {
     --primary-dark: #081b29;
-    --primary-ligth:rgb(237, 237, 237);
+    --primary-light:rgb(237, 237, 237);
     --primary-blue:rgb(72 181 231);
+    --primary-gradient:linear-gradient(155deg,#00feba, #5b548a)
 }
-
 
 body {
 
     font-weight: bold;
-    color: var(--primary-ligth);
 
 }
-
-
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/*header*/
+.container-fluid.custom-bg {
+    position: relative;
+    opacity: 81%;
+    margin-bottom: 20px;
+    object-fit: contain;
+    /*background-color: rgba(255 255 255 /61);*/
+    background: var(--primary-gradient);
+}
 a {
     text-decoration: none;
     color: unset !important;
@@ -24,30 +35,21 @@ a:active {
     text-decoration: none;
     color: unset !important;
 }
-
-.page-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
 .card{
-    opacity: 61%;
+    color: rgb(255 255 255);
+    border-radius: 30px;
     transition: 2s;
+    /*opacity: 71%;*/
+
+    /*TODO maybe add a feature that displays a bg video/gif depending on the condition ... Maybe*/
+    /*background-image: url("/img/weather-app/clouds.gif");*/
+    background: var(--primary-gradient);
 }
 .card:hover {
     transform: scale(1.05);
 }
 .card-body p {
     margin-bottom: unset;
-}
-.weather-icon-wrapper {
-    height: 75px;
-    width: 75px;
-    position: relative;
-
-}
-.weather-icon-wrapper img {
-    position: absolute;
 }
 #map {
     position: fixed;
@@ -56,18 +58,17 @@ a:active {
     width: 100%;
     height: 100%;
 }
-
-/*header*/
-.container-fluid.custom-bg {
-    position: relative;
-    background-color: rgb(255 255 255 / 51%);
-    margin-bottom: 20px;
-}
-input#address-search-input {
+input#search-input {
     background: unset;
-    border: 2px solid rgb(10,106,244);
+    border: 2px solid #00feba;
+    border-radius: 30px;
 }
-
-input#address-search-input::placeholder {
-    color: rgb(10,106,244);
+input#search-input::placeholder {
+    color: #00feba;
+    /*color: rgb(10,106,244);*/
+}
+button#search-btn {
+    border: 2px solid #00feba;
+    border-radius: 30px;
+    color: #00feba;
 }
