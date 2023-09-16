@@ -63,6 +63,11 @@ input#search-input {
     border: 2px solid #00feba;
     border-radius: 30px;
 }
+input#search-input:hover {
+    background: #0C6DFD;
+    border: 2px solid #00feba;
+    border-radius: 30px;
+}
 input#search-input::placeholder {
     color: #00feba;
     /*color: rgb(10,106,244);*/

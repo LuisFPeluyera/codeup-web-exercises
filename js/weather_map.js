@@ -22,6 +22,8 @@ let marker = new mapboxgl.Marker({
     .setLngLat([-98.4946, 29.4252])
     .addTo(map);
 
+
+// Event lister to re-center map on starting point when Company Logo clicked
 $(".company-logo").on("click",()=>{
     map.flyTo({
     center: [-98.4946, 29.4252],
@@ -32,6 +34,29 @@ $(".company-logo").on("click",()=>{
 });
 
 ///////////////////////////////////////////////////// FUNCTIONS
+
+// function does a get request, loops the data, runs the nested function buildForecastCards and displays the cards in the DOM with event listener
+function getAndLoop (input) {
+// get request to update weather cards with user input on search button submitting
+        $.get(FIVE_DAY_WEATHER + `q=${input}&appid=${WEATHER_MAP_KEY}&units=imperial`).done((data)=>{
+
+            // console logs data from five day forecast
+            console.log(data);
+
+            // loop to create the weather cards and display them on the DOM
+            for (let i = 0; i < data.list.length; i+=8) {
+
+                html += buildForecastCard(data, i);
+
+                // sets the weather cards in the DOM
+                $("#forecast-weather").html(html);
+            }
+
+            //resets html variable
+            html = ``;
+
+        });// end of get request
+ }
 
 
 //TODO NEED TO FIGURE OUT WHY ITS NOT WORKING
@@ -171,7 +196,7 @@ const onDragUpdateWeather = () =>{
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // this get request is displayed on page load, then is overridden by the search input submitting button or by dragging and dropping the marker
-$.get(FIVE_DAY_WEATHER + `q=san antonio, usa&appid=${WEATHER_MAP_KEY}&units=imperial`).done((data)=>{
+$.get(FIVE_DAY_WEATHER + `lat=29.4252&lon=-98.4946&appid=${WEATHER_MAP_KEY}&units=imperial`).done((data)=>{
 
 
     // console logs data from five day forecast
@@ -198,8 +223,8 @@ $.get(FIVE_DAY_WEATHER + `q=san antonio, usa&appid=${WEATHER_MAP_KEY}&units=impe
     }// end of for loop
 
     //TODO NEXT TO CONSOLE LOGS WILL BE REMOVED, JUST FOR FUNCTION  weatherCondition TESTING
-    console.log(weatherCondition);
-    console.log(html);
+    // console.log(weatherCondition);
+    // console.log(html);
 
     //rests html variable
     html = ``;
@@ -212,6 +237,7 @@ $.get(FIVE_DAY_WEATHER + `q=san antonio, usa&appid=${WEATHER_MAP_KEY}&units=impe
 $("#search-btn").on("click",function(e){
     e.preventDefault();
      userInput = $('#search-input').val();
+
     geocode(userInput, DEFAULT_PUBLIC_TOKEN).then(function(result) {
         console.log(result);
         map.flyTo({
@@ -224,30 +250,10 @@ $("#search-btn").on("click",function(e){
         //this line centers the marker in the user input
          marker.setLngLat(result);
 
-
-
     });// end of geocode function
 
-
-    // get request to update weather cards with user input on search button submitting
-    $.get(FIVE_DAY_WEATHER + `q=${userInput}&appid=${WEATHER_MAP_KEY}&units=imperial`).done((data)=>{
-
-        // console logs data from five day forecast
-        console.log(data);
-
-        // loop to create the weather cards and display them on the DOM
-        for (let i = 0; i < data.list.length; i+=8) {
-
-            html += buildForecastCard(data, i);
-
-            // sets the weather cards in the DOM
-            $("#forecast-weather").html(html);
-        }
-
-        //resets html variable
-        html = ``;
-
-    });// end of get request
+    // function to do get request and loops data creates cards and displays them on DOM
+    getAndLoop(userInput);
 
 });// end of search button event listener
 
