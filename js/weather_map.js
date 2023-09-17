@@ -59,7 +59,7 @@ $(".toStartingPoint").on("click",()=>{
 
 ///////////////////////////////////////////////////// FUNCTIONS
 
-// function does a get request, loops the data, runs the nested function buildForecastCards and displays the cards in the DOM with event listener
+// function does a get request, loops the data, runs the nested function "buildForecastCards" and displays the cards in the DOM with event listener
 const getAndLoop = (input)=> {
 // get request to update weather cards with user input on search button submitting
         $.get(FIVE_DAY_WEATHER + `lat=${input[1]}&lon=${input[0]}&appid=${WEATHER_MAP_KEY}&units=imperial`).done((data)=>{
@@ -102,7 +102,7 @@ const buildForecastCard = (data, i) => {
         
         <div class="card-wrapper">
                 <div class="card mb-3 position-relative" style="width: 14rem;">
-                  <div class="card-header">${epochConverter(data.list[i].dt)}</div>
+                  <div class=" date card-header">${getDayNameByDate(data.list[i].dt)}</div>
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${data.city.name}</h5>
                         <p class="card-text">${capitalized(data.list[i].weather[0].description)}</p>
@@ -122,11 +122,18 @@ const buildForecastCard = (data, i) => {
     return html;
 }
 
-// function to convert dt to date
-const epochConverter = (epoch)=>{
+// function to get name of day from dt
+const getDayNameByDate = (dt) => {
+    const newDate =new Date(dt * 1000).toString().substring(4, 15);
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const dayIndex = new Date( newDate ).getDay();
+    return days[dayIndex];
 
-    return  new Date(epoch * 1000).toString().substring(4, 15)
 }
+
+
+
+
 
 // function to UPDATE CARDS to marker location when dragged and dropped
 const onDragUpdateWeather = () =>{
@@ -151,7 +158,6 @@ const capitalized = (string) =>{
 
         return newArr.join(" ");
 }
-
 
 ///////////////////////////////////////////// EVENT LISTENER
 // event listener added to marker to run the function onDragUpdateWeather
@@ -179,11 +185,7 @@ $("#search-btn").on("click",function(e){
 });// end of search button event listener
 
 
-
-
 //TODO fix cards to show day name of today and tomorrow
-
-//TODO get text in card to be Capitalized
 
 //TODO fix weather cards layout
 

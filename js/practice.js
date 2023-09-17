@@ -99,66 +99,66 @@
 //
 // }//end of function
 
-
-function weatherBg(main) {
-    if (main.includes("snow")) {
-
-        console.log("snow");
-        // $(this).css("background-image", "url(`img/weather-app/snow.gif`)");
-
-    } else if (main.includes("clear")) {
-
-        console.log("clear");
-        //$(this).css("background-image", "url(`img/weather-app/clear.gif`)");
-
-    } else if (main.includes("clouds")) {
-
-        console.log("clouds");
-        //$(this).css("background-image", "url(`img/weather-app/clouds.gif`)");
-
-    } else if (main.includes("fog")) {
-
-        console.log("fog");
-        //$(this).css("background-image", "url(`img/weather-app/fog.gif`)");
-
-    } else if (main.includes("rain")) {
-
-        console.log("rain");
-       // $(this).css("background-image", "url(`img/weather-app/rain.gif`)");
-
-    } else if (main.includes("thunderstorm")) {
-
-        console.log("thunderstorm");
-       // $(this).css("background-image", "url(`img/weather-app/thunderstorm.gif`)");
-    } else {
-
-        console.log("something is wrong");
-    }// end of if statements
-
-}// end of function weatherBG
-
-//TODO TEST JQUERY EVENT LISTENER IT WORKS
-$("body").on("click",(e) =>{
-
-    console.log(e.target);
-    $(e.target).css({
-        "background-image": `url("/img/weather-app/clouds.gif")`,
-        "color": "black"
-    } )
-
-})
-
-
-
-$("#address-search-button").on("click",(e) =>{
-
-    console.log(e.target);
-    $(e.target).css({
-        "background-image": `url("/img/weather-app/clouds.gif")`,
-        "color": "black"
-    } )
-
-})
+//
+// function weatherBg(main) {
+//     if (main.includes("snow")) {
+//
+//         console.log("snow");
+//         // $(this).css("background-image", "url(`img/weather-app/snow.gif`)");
+//
+//     } else if (main.includes("clear")) {
+//
+//         console.log("clear");
+//         //$(this).css("background-image", "url(`img/weather-app/clear.gif`)");
+//
+//     } else if (main.includes("clouds")) {
+//
+//         console.log("clouds");
+//         //$(this).css("background-image", "url(`img/weather-app/clouds.gif`)");
+//
+//     } else if (main.includes("fog")) {
+//
+//         console.log("fog");
+//         //$(this).css("background-image", "url(`img/weather-app/fog.gif`)");
+//
+//     } else if (main.includes("rain")) {
+//
+//         console.log("rain");
+//        // $(this).css("background-image", "url(`img/weather-app/rain.gif`)");
+//
+//     } else if (main.includes("thunderstorm")) {
+//
+//         console.log("thunderstorm");
+//        // $(this).css("background-image", "url(`img/weather-app/thunderstorm.gif`)");
+//     } else {
+//
+//         console.log("something is wrong");
+//     }// end of if statements
+//
+// }// end of function weatherBG
+//
+// //TODO TEST JQUERY EVENT LISTENER IT WORKS
+// $("body").on("click",(e) =>{
+//
+//     console.log(e.target);
+//     $(e.target).css({
+//         "background-image": `url("/img/weather-app/clouds.gif")`,
+//         "color": "black"
+//     } )
+//
+// })
+//
+//
+//
+// $("#address-search-button").on("click",(e) =>{
+//
+//     console.log(e.target);
+//     $(e.target).css({
+//         "background-image": `url("/img/weather-app/clouds.gif")`,
+//         "color": "black"
+//     } )
+//
+// })
 
 
 
@@ -170,4 +170,44 @@ $("#address-search-button").on("click",(e) =>{
 // }
 
 
-const lngLatArr= Object.values(lngLat);
+
+
+
+
+// let today = new Date();
+// let firstOfMonth = new Date(today);
+//
+// console.log(today);
+//
+// let days = ['Sun','Mon','Tues','Wed','Thurs','Fri','Sat'];
+// console.log(days[today.getDay()]);
+
+
+// let someDate = $(".date").html()
+//
+//function to convert dt to name of day
+// const getDayNameByDate = (dt) => {
+//     const newDate =new Date(dt * 1000).toString().substring(4, 15)
+//     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+//     const dayIndex = new Date( newDate ).getDay()
+//     return days[dayIndex];
+//
+// }
+
+
+// function to convert dt to date
+// const epochConverter = (epoch)=>{
+//
+//
+//     return  new Date(epoch * 1000).toString().substring(4, 15)
+// }
+// //
+// /* optional function */
+// const showDom = async ( res ) => {
+//     const output = await document.getElementById('date');
+//     output.innerHTML = res
+// }
+
+
+console.log(getDayNameByDate("1694941200"));
+
