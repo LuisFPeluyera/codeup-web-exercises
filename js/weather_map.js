@@ -12,9 +12,10 @@ weekday[3] = "Wednesday";
 weekday[4] = "Thursday";
 weekday[5] = "Friday";
 weekday[6] = "Saturday";
+
 ///////////////////////////////////////////////////// VARIABLES
 
-// center point for map
+// center point for map currently: (San Antonio)
 let centerPoint = [-98.4946, 29.4252];
 
 // assigned to create the weather forecast cards
@@ -36,6 +37,7 @@ let startingPoint = [-66.11596009091296, 18.35993013429712]
 // EYE of Sahara starting point
 // let startingPoint =  map.setCenter([-11.39398402540313, 21.14990533074583])
 
+// sets map at starting position currently : (Puerto Rico)
 map.setCenter(startingPoint)
 
 
@@ -45,20 +47,20 @@ map.setCenter(startingPoint)
 $(".company-logo").on("click",()=>{
 
     getAndLoop(centerPoint);
-
 });
 
-// Event lister to re-center map on starting point when Company Logo clicked
+// Event lister to re-center map on starting point when top right btn (paper plane icon) clicked
 $(".toStartingPoint").on("click",()=>{
 
     getAndLoop(startingPoint);
-
 });
+
+
 
 ///////////////////////////////////////////////////// FUNCTIONS
 
 // function does a get request, loops the data, runs the nested function buildForecastCards and displays the cards in the DOM with event listener
-function getAndLoop (input) {
+const getAndLoop = (input)=> {
 // get request to update weather cards with user input on search button submitting
         $.get(FIVE_DAY_WEATHER + `lat=${input[1]}&lon=${input[0]}&appid=${WEATHER_MAP_KEY}&units=imperial`).done((data)=>{
 
@@ -69,11 +71,13 @@ function getAndLoop (input) {
 
             });
 
+            // console logs data from five day forecast
+            // console.log(data);
+
             //this line centers the marker in the user input
             marker.setLngLat(input);
 
-            // console logs data from five day forecast
-            console.log(data);
+
 
             // loop to create the weather cards and display them on the DOM
             for (let i = 0; i < data.list.length; i+=8) {
@@ -101,7 +105,7 @@ const buildForecastCard = (data, i) => {
                   <div class="card-header">${epochConverter(data.list[i].dt)}</div>
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${data.city.name}</h5>
-                        <p class="card-text">${data.list[i].weather[0].description}</p>
+                        <p class="card-text">${capitalized(data.list[i].weather[0].description)}</p>
                         <div class="d-flex align-items-center justify-content-center">
                         <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png"/>
                         </div>
@@ -128,7 +132,7 @@ const epochConverter = (epoch)=>{
 const onDragUpdateWeather = () =>{
 
     const lngLat = marker.getLngLat();
-    console.log(lngLat);
+
     const lngLatArr= Object.values(lngLat);
 
     // function get and loops
@@ -136,7 +140,20 @@ const onDragUpdateWeather = () =>{
 
 }// end of function onDragEnd
 
+// function to capitalize first letter of every word
+const capitalized = (string) =>{
+    let arr = string.split(" ");
 
+    let newArr=  arr.map((x)=>{
+
+        return    x.charAt(0).toUpperCase() + x.slice(1);
+    })
+
+        return newArr.join(" ");
+}
+
+
+///////////////////////////////////////////// EVENT LISTENER
 // event listener added to marker to run the function onDragUpdateWeather
  marker.on('dragend', onDragUpdateWeather);
 
@@ -153,13 +170,6 @@ $("#search-btn").on("click",function(e){
      userInput = $('#search-input').val();
 
     geocode(userInput, DEFAULT_PUBLIC_TOKEN).then(function(result) {
-        console.log(result);
-        map.flyTo({
-            center: result,
-            essential: true,
-            zoom: 13
-
-        });
 
         //Get request and loops data creates cards and displays them on DOM
         getAndLoop(result);
@@ -169,7 +179,7 @@ $("#search-btn").on("click",function(e){
 });// end of search button event listener
 
 
-//TODO
+
 
 //TODO fix cards to show day name of today and tomorrow
 
