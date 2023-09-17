@@ -211,3 +211,59 @@
 
 console.log(getDayNameByDate("1694941200"));
 
+
+//TODO NEED TO FIGURE OUT WHY ITS NOT WORKING
+// function to assign bg img based on condition
+function weatherBg(main) {
+    if (main.includes("Snow")) {
+
+        console.log("snow");
+        $("body").css({
+            "background-image": `url("/img/weather-app/snow.gif")`
+
+        });
+
+    } else if (main.includes("Clear")) {
+
+        console.log("clear");
+        $("body").css({
+            "background-image": `url("/img/weather-app/clear.gif")`
+
+        });
+
+    } else if (main.includes("Clouds")) {
+
+        console.log("clouds");
+        $("body").css({
+            "background-image": `url("/img/weather-app/clouds.gif")`
+
+        });
+
+    } else if (main.includes("Fog")) {
+
+        console.log("fog");
+        $("body").css({
+            "background-image": `url("/img/weather-app/fog.gif")`
+        });
+
+    } else if (main.includes("Rain")) {
+
+        console.log("rain");
+        $("#address-search-button, .container-fluid.custom-bg").css({
+            "background-image": `url("/img/weather-app/rain.gif")`
+        });
+
+    } else if (main.includes("Thunderstorm")) {
+
+        console.log("thunderstorm");
+        $("body").css({
+            "background-image": `url("/img/weather-app/thunderstorm.gif")`
+
+        });
+    } else {
+
+        console.log("something is wrong");
+
+    }// end of if statements
+
+}// end of function weatherBG

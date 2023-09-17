@@ -1,16 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Fresca&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@300;400;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-    --primary-dark: #081b29;
-    --primary-light:rgb(237, 237, 237);
     --primary-blue:rgb(72 181 231);
     --primary-gradient:linear-gradient(155deg,#00feba, #5b548a)
 }
 body {
-
     font-family: "Poppins", sans-serif;
     font-weight: 700;
-
 }
 .page-wrapper {
     display: flex;
@@ -29,11 +25,6 @@ a {
     text-decoration: none;
     color: unset !important;
 }
-
-a:active {
-    text-decoration: none;
-    color: unset !important;
-}
 .company-logo-weather{
     color: #FFFFFF;
     font-size: 20px;
@@ -47,9 +38,8 @@ a:active {
     background: var(--primary-gradient);
 }
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
-
 #map {
     position: fixed;
     top: 0;
@@ -61,24 +51,25 @@ input#search-input {
     background: unset;
     border: 2px solid #00feba;
     border-radius: 30px;
+    transition: 2s;
 }
 input#search-input:hover {
     background: var(--primary-gradient);
+    transform: scale(1.1);
 
 }
 input#search-input::placeholder {
     color: #00feba;
-
 }
 input#search-input:hover::placeholder {
     color: #5b548a;
-
 }
 button#search-btn,
 a.toStartingPoint{
     border: 2px solid #00feba;
     border-radius: 50px;
     color: #00feba;
+    transition: 2s;
 }
 a.toStartingPoint {
     margin: 0 9px;
@@ -90,4 +81,6 @@ button#search-btn:hover,
 a.toStartingPoint:hover {
     background: var(--primary-gradient);
     color: var(--primary-gradient);
+    transform: scale(1.1);
 }
+

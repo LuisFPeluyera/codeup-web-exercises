@@ -45,7 +45,6 @@ $(".toStartingPoint").on("click",()=>{
     getAndLoop(startingPoint);
 });
 
-
 ///////////////////////////////////////////////////// FUNCTIONS
 
 // function does a get request, loops the data, runs the nested function "buildForecastCards" and displays the cards in the DOM with event listener
@@ -60,7 +59,7 @@ const getAndLoop = (input)=> {
 
             });
 
-            // console logs data from five day forecast
+            // console logs data from five day forecast//*****Do Not delete*****//
             console.log(data);
 
             //this line centers the marker in the user input
@@ -115,10 +114,7 @@ const buildForecastCard = (data, i) => {
             </div>`;
 
     return html;
-}
-
-// <box-icon name='wind'></box-icon>
-// <box-icon name='water'></box-icon>
+};
 
 // function to get name of day from dt
 const getDayNameByDate = (dt) => {
@@ -169,6 +165,7 @@ $("#search-btn").on("click",function(e){
     e.preventDefault();
      userInput = $('#search-input').val();
 
+     // function to convert user input "location" to lat,lon then passed to function to do get request and create cards to display on DOM
     geocode(userInput, DEFAULT_PUBLIC_TOKEN).then(function(result) {
 
         //Get request and loops data creates cards and displays them on DOM
@@ -178,19 +175,7 @@ $("#search-btn").on("click",function(e){
 
 });// end of search button event listener
 
-
 //TODO fix cards to read today and tomorrow then the rest of the days
-
-
-//TODO set cards to appear from the top on load
-
-//TODO finish styling
-
-
-
-
-
-
 
 //TODO add the random location weather forecast feature ....MAYBE
 //TODO below is a function to make the map fly to random location to maybe add as an extra feature.... MAYBE
@@ -202,63 +187,6 @@ $("#search-btn").on("click",function(e){
 // });
 // });
 
-
-
-//TODO NEED TO FIGURE OUT WHY ITS NOT WORKING
-// function to assign bg img based on condition
-function weatherBg(main) {
-    if (main.includes("Snow")) {
-
-        console.log("snow");
-        $("body").css({
-            "background-image": `url("/img/weather-app/snow.gif")`
-
-        });
-
-    } else if (main.includes("Clear")) {
-
-        console.log("clear");
-        $("body").css({
-            "background-image": `url("/img/weather-app/clear.gif")`
-
-        });
-
-    } else if (main.includes("Clouds")) {
-
-        console.log("clouds");
-        $("body").css({
-            "background-image": `url("/img/weather-app/clouds.gif")`
-
-        });
-
-    } else if (main.includes("Fog")) {
-
-        console.log("fog");
-        $("body").css({
-            "background-image": `url("/img/weather-app/fog.gif")`
-        });
-
-    } else if (main.includes("Rain")) {
-
-        console.log("rain");
-        $("#address-search-button, .container-fluid.custom-bg").css({
-            "background-image": `url("/img/weather-app/rain.gif")`
-        });
-
-    } else if (main.includes("Thunderstorm")) {
-
-        console.log("thunderstorm");
-        $("body").css({
-            "background-image": `url("/img/weather-app/thunderstorm.gif")`
-
-        });
-    } else {
-
-        console.log("something is wrong");
-
-    }// end of if statements
-
-}// end of function weatherBG
 
 
 
