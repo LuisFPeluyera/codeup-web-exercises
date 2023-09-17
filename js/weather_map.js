@@ -3,16 +3,6 @@
 // FIVE DAYS weather forecast
 const FIVE_DAY_WEATHER = "https://api.openweathermap.org/data/2.5/forecast?"
 
-
-const weekday = new Array(7);
-weekday[0]=  "Sunday";
-weekday[1] = "Monday";
-weekday[2] = "Tuesday";
-weekday[3] = "Wednesday";
-weekday[4] = "Thursday";
-weekday[5] = "Friday";
-weekday[6] = "Saturday";
-
 ///////////////////////////////////////////////////// VARIABLES
 
 // center point for map currently: (San Antonio)
@@ -131,10 +121,6 @@ const getDayNameByDate = (dt) => {
 
 }
 
-
-
-
-
 // function to UPDATE CARDS to marker location when dragged and dropped
 const onDragUpdateWeather = () =>{
 
@@ -185,7 +171,7 @@ $("#search-btn").on("click",function(e){
 });// end of search button event listener
 
 
-//TODO fix cards to show day name of today and tomorrow
+//TODO fix cards to read today and tomorrow then the rest of the days
 
 //TODO fix weather cards layout
 
