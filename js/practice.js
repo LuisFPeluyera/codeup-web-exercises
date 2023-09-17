@@ -168,3 +168,6 @@ $("#address-search-button").on("click",(e) =>{
 //         : condition3 ? value3
 //         : value4;
 // }
+
+
+const lngLatArr= Object.values(lngLat);

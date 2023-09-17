@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Fresca&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@300;400;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
     --primary-dark: #081b29;
@@ -6,10 +6,10 @@
     --primary-blue:rgb(72 181 231);
     --primary-gradient:linear-gradient(155deg,#00feba, #5b548a)
 }
-
 body {
 
-    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
 
 }
 .page-wrapper {
@@ -23,7 +23,6 @@ body {
     opacity: 81%;
     margin-bottom: 20px;
     object-fit: contain;
-    /*background-color: rgba(255 255 255 /61);*/
     background: var(--primary-gradient);
 }
 a {
@@ -35,14 +34,17 @@ a:active {
     text-decoration: none;
     color: unset !important;
 }
+.company-logo-weather{
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 900;
+    text-blink: Weather;
+}
 .card{
     color: rgb(255 255 255);
     border-radius: 30px;
     transition: 2s;
-    /*opacity: 71%;*/
-
-    /*TODO maybe add a feature that displays a bg video/gif depending on the condition ... Maybe*/
-    /*background-image: url("/img/weather-app/clouds.gif");*/
+    opacity: 81%;
     background: var(--primary-gradient);
 }
 .card:hover {
@@ -64,16 +66,31 @@ input#search-input {
     border-radius: 30px;
 }
 input#search-input:hover {
-    background: #0C6DFD;
-    border: 2px solid #00feba;
-    border-radius: 30px;
+    background: var(--primary-gradient);
+
 }
 input#search-input::placeholder {
     color: #00feba;
-    /*color: rgb(10,106,244);*/
+
 }
-button#search-btn {
+input#search-input:hover::placeholder {
+    color: #5b548a;
+
+}
+button#search-btn,
+a.toStartingPoint{
     border: 2px solid #00feba;
-    border-radius: 30px;
+    border-radius: 50px;
     color: #00feba;
+}
+a.toStartingPoint {
+    margin: 0 9px;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+}
+button#search-btn:hover,
+a.toStartingPoint:hover {
+    background: var(--primary-gradient);
+    color: var(--primary-gradient);
 }
