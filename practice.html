@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>PRACTICE</title>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <!--	<style>-->
 <!--        .product-item {-->
 <!--            text-align: center;-->
@@ -57,24 +59,36 @@
 <!--		TODO                      COFFEE PROJECT EXAMPLE                                             -->
 
 
-	<h1>Coffee!</h1>
+<div class="card  pt-4 position-relative d-flex justify-content-center align-items-center" style="width: 14rem;">
 
 
-			<div class="date">Sep 17 2023</div>
-			<div class="date">Sep 18 2023</div>
-			<div class="date">Sep 19 2023</div>
-			<div class="date">Sep 20 2023</div>
-	<table>
-		<thead>
-		<tr>
-			<th>ID</th>
-			<th>NAME</th>
-			<th>ROAST</th>
-		</tr>
-		</thead>
-		<tbody id="coffees"></tbody>
-	</table>
+	<p class=" d-flex flex-column card-text">${getDayNameByDate(data.list[i].dt)}</p>
+	<h5 class="">${data.city.name}</h5>
+	<h1 class="">${data.list[i].main.temp.toFixed()}&deg</h1>
+	<p class="">${capitalized(data.list[i].weather[0].description)}</p>
+	<div class="d-flex align-items-center justify-content-center">
+		<img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png"/>
+	</div>
+	<p class="">H:${data.list[i].main.temp_min.toFixed()}&deg  L:${data.list[i].main.temp_max.toFixed()}&deg</p>
+
+	<div class="details d-flex align-items-center justify-content-between  mt-4">
+		<div class="humidity col d-flex me-5">
+			<box-icon name='water'></box-icon>
+			<p>${data.list[i].main.humidity}%</p>
+		</div>
+		<div class="wind col d-flex">
+			<box-icon name='wind'></box-icon>
+			<p>${data.list[i].wind.speed}mph</p>
+		</div>
+
+	</div>
+	<div class="invisible">
+		<p>Feels like: ${data.list[i].main.feels_like.toFixed()}&deg</p>
+	</div>
+
+</div>`;
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="js/practice.js"></script>
 </body>
 </html>

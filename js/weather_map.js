@@ -46,7 +46,6 @@ $(".toStartingPoint").on("click",()=>{
 });
 
 
-
 ///////////////////////////////////////////////////// FUNCTIONS
 
 // function does a get request, loops the data, runs the nested function "buildForecastCards" and displays the cards in the DOM with event listener
@@ -62,7 +61,7 @@ const getAndLoop = (input)=> {
             });
 
             // console logs data from five day forecast
-            // console.log(data);
+            console.log(data);
 
             //this line centers the marker in the user input
             marker.setLngLat(input);
@@ -90,27 +89,36 @@ const buildForecastCard = (data, i) => {
 
     let html = `
         
-        <div class="card-wrapper">
-                <div class="card mb-3 position-relative" style="width: 14rem;">
-                  <div class=" date card-header">${getDayNameByDate(data.list[i].dt)}</div>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">${data.city.name}</h5>
-                        <p class="card-text">${capitalized(data.list[i].weather[0].description)}</p>
-                        <div class="d-flex align-items-center justify-content-center">
-                        <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png"/>
-                        </div>
-                        <p class="card-text">Temp: ${data.list[i].main.temp.toFixed()} F&deg</p>
-                        <p class="card-text">Feels like: ${data.list[i].main.feels_like.toFixed()} F&deg</p>
-                        <p class="card-text">${data.list[i].main.temp_min.toFixed()} / ${data.list[i].main.temp_max.toFixed()} F&deg</p>
-                        <p class="card-text">Humidity: ${data.list[i].main.humidity}%</p>
-                        <box-icon name='wind'></box-icon>
+            <div class="card  pt-4 position-relative d-flex justify-content-center align-items-center" style="width: 14rem;">
+    
+                
+                <p class=" d-flex flex-column card-text">${getDayNameByDate(data.list[i].dt)}</p>
+                <h5 class="">${data.city.name}</h5>
+                <h1 class="">${data.list[i].main.temp.toFixed()}&deg</h1>
+                <p class="">${capitalized(data.list[i].weather[0].description)}</p>
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png"/>
+                </div>
+                <p class="">H:${data.list[i].main.temp_min.toFixed()}&deg  L:${data.list[i].main.temp_max.toFixed()}&deg</p>
+                
+                <div class="details d-flex align-items-center justify-content-between  mt-4">
+                    <div class="humidity col d-flex me-5">
                         <box-icon name='water'></box-icon>
-                         
+                        <p>${data.list[i].main.humidity}%</p>
+                    </div>
+                    <div class="wind col d-flex">
+                        <box-icon name='wind'></box-icon>
+                        <p>${data.list[i].wind.speed}mph</p>
                     </div>
                 </div>
-        </div>`;
+               
+            </div>`;
+
     return html;
 }
+
+// <box-icon name='wind'></box-icon>
+// <box-icon name='water'></box-icon>
 
 // function to get name of day from dt
 const getDayNameByDate = (dt) => {
@@ -173,7 +181,6 @@ $("#search-btn").on("click",function(e){
 
 //TODO fix cards to read today and tomorrow then the rest of the days
 
-//TODO fix weather cards layout
 
 //TODO set cards to appear from the top on load
 

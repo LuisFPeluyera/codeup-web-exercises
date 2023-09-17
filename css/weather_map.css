@@ -38,7 +38,6 @@ a:active {
     color: #FFFFFF;
     font-size: 20px;
     font-weight: 900;
-    text-blink: Weather;
 }
 .card{
     color: rgb(255 255 255);
@@ -50,9 +49,7 @@ a:active {
 .card:hover {
     transform: scale(1.05);
 }
-.card-body p {
-    margin-bottom: unset;
-}
+
 #map {
     position: fixed;
     top: 0;
