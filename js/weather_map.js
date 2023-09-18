@@ -173,6 +173,9 @@ $("#search-btn").on("click",function(e){
 
     });// end of geocode function
 
+    // resets the search input value (empty)
+    $('#search-input').val("");
+
 });// end of search button event listener
 
 //TODO fix cards to read today and tomorrow then the rest of the days
