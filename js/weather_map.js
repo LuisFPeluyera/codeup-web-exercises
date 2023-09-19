@@ -137,6 +137,7 @@ const onDragUpdateWeather = () =>{
 
 }// end of function onDragEnd
 
+
 // function to capitalize first letter of every word
 const capitalized = (string) =>{
     let arr = string.split(" ");
@@ -152,6 +153,13 @@ const capitalized = (string) =>{
 ///////////////////////////////////////////// EVENT LISTENER
 // event listener added to marker to run the function onDragUpdateWeather
  marker.on('dragend', onDragUpdateWeather);
+
+map.on('click', (e)=>{
+    console.log(e.lngLat);
+    const lngLatArr= Object.values(e.lngLat);
+    getAndLoop(lngLatArr)
+
+})
 
 ////////////////////////////////////////////////////////DISPLAYED ON LOAD/////////////////////////////////////////////////////////////////////////////////////////
 
