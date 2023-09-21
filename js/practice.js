@@ -209,7 +209,7 @@
 // }
 
 
-console.log(getDayNameByDate("1694941200"));
+
 
 
 //TODO NEED TO FIGURE OUT WHY ITS NOT WORKING
@@ -267,3 +267,14 @@ function weatherBg(main) {
     }// end of if statements
 
 }// end of function weatherBG
+
+
+
+let baseArr = [1, 2, 3];
+
+let baseArr2 = [4, 5, 6];
+
+
+let newArr = [...baseArr,...baseArr2];
+
+console.log(newArr);

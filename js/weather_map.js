@@ -1,6 +1,18 @@
 "use strict"
+import keys from "./keys.js";
 
-// FIVE DAYS weather forecast
+//map created
+mapboxgl.accessToken = keys.DEFAULT_PUBLIC_TOKEN
+const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    // style: 'mapbox://styles/mapbox/satellite-v9', // style URL
+    style: 'mapbox://styles/mapbox/satellite-streets-v11',
+    center: [-98.489615, 29.426827], // starting position [lng, lat]
+    zoom: 9, // starting zoom
+    projection: 'globe'
+});
+
+// five days weather forecast
 const FIVE_DAY_WEATHER = "https://api.openweathermap.org/data/2.5/forecast?"
 
 ///////////////////////////////////////////////////// VARIABLES
@@ -25,7 +37,7 @@ let marker = new mapboxgl.Marker({
 // Puerto rico
 let startingPoint = [-66.11596009091296, 18.35993013429712]
 // EYE of Sahara starting point
-// let startingPoint =  map.setCenter([-11.39398402540313, 21.14990533074583])
+// let startingPoint = [-11.39398402540313, 21.14990533074583]
 
 // sets map at starting position currently : (Puerto Rico)
 map.setCenter(startingPoint)
@@ -50,7 +62,7 @@ $(".toStartingPoint").on("click",()=>{
 // function does a get request, loops the data, runs the nested function "buildForecastCards" and displays the cards in the DOM with event listener
 const getAndLoop = (input)=> {
 // get request to update weather cards with user input on search button submitting
-        $.get(FIVE_DAY_WEATHER + `lat=${input[1]}&lon=${input[0]}&appid=${WEATHER_MAP_KEY}&units=imperial`).done((data)=>{
+        $.get(FIVE_DAY_WEATHER + `lat=${input[1]}&lon=${input[0]}&appid=${keys.WEATHER_MAP_KEY}&units=imperial`).done((data)=>{
 
             map.flyTo({
                 center: [input[0],input[1]],
@@ -91,14 +103,14 @@ const buildForecastCard = (data, i) => {
             <div class="card  pt-4 position-relative d-flex justify-content-center align-items-center" style="width: 14rem;">
     
                 
-                <p class=" d-flex flex-column card-text">${getDayNameByDate(data.list[i].dt)}</p>
-                <h5 class="">${data.city.name}</h5>
-                <h1 class="">${data.list[i].main.temp.toFixed()}&deg</h1>
-                <p class="">${capitalized(data.list[i].weather[0].description)}</p>
+                <p class= "d-flex flex-column card-text">${getDayNameByDate(data.list[i].dt)}</p>
+                <h5>${data.city.name}</h5>
+                <h1>${data.list[i].main.temp.toFixed()}&deg</h1>
+                <p>${capitalized(data.list[i].weather[0].description)}</p>
                 <div class="d-flex align-items-center justify-content-center">
                     <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png"/>
                 </div>
-                <p class="">H:${data.list[i].main.temp_min.toFixed()}&deg  L:${data.list[i].main.temp_max.toFixed()}&deg</p>
+                <p>H:${data.list[i].main.temp_min.toFixed()}&deg  L:${data.list[i].main.temp_max.toFixed()}&deg</p>
                 
                 <div class="details d-flex align-items-center justify-content-between  mt-4">
                     <div class="humidity col d-flex me-5">
@@ -145,26 +157,27 @@ const capitalized = (string) =>{
     let newArr=  arr.map((x)=>{
 
         return    x.charAt(0).toUpperCase() + x.slice(1);
-    })
+    });
 
         return newArr.join(" ");
-}
+};
 
 ///////////////////////////////////////////// EVENT LISTENER
 // event listener added to marker to run the function onDragUpdateWeather
  marker.on('dragend', onDragUpdateWeather);
 
+ // event listener added to map to update weather cards and drop pin and center map on clicked location
 map.on('click', (e)=>{
     console.log(e.lngLat);
     const lngLatArr= Object.values(e.lngLat);
-    getAndLoop(lngLatArr)
+    getAndLoop(lngLatArr);
 
-})
+});
 
-////////////////////////////////////////////////////////DISPLAYED ON LOAD/////////////////////////////////////////////////////////////////////////////////////////
+//TODO////////////////////////////////////////////////////DISPLAYED ON LOAD/////////////////////////////////////////////////////////////////////////////////////////
 
 //Get request is displayed on page load, then is overridden by the search input submitting button or by dragging and dropping the marker
-getAndLoop(centerPoint);
+ getAndLoop(centerPoint);
 
 /////////////////////////////////////////////////////////EVENT LISTENER FOR SEARCH INPUT////////////////////////////////////////////////////////////////////////////////////////
 
@@ -174,7 +187,7 @@ $("#search-btn").on("click",function(e){
      userInput = $('#search-input').val();
 
      // function to convert user input "location" to lat,lon then passed to function to do get request and create cards to display on DOM
-    geocode(userInput, DEFAULT_PUBLIC_TOKEN).then(function(result) {
+    geocode(userInput, keys.DEFAULT_PUBLIC_TOKEN).then(function(result) {
 
         //Get request and loops data creates cards and displays them on DOM
         getAndLoop(result);
@@ -185,19 +198,6 @@ $("#search-btn").on("click",function(e){
     $('#search-input').val("");
 
 });// end of search button event listener
-
-//TODO fix cards to read today and tomorrow then the rest of the days
-
-//TODO add the random location weather forecast feature ....MAYBE
-//TODO below is a function to make the map fly to random location to maybe add as an extra feature.... MAYBE
-//document.getElementById('fly').addEventListener('click', () => {
-// // Fly to a random location
-// map.flyTo({
-// center: [(Math.random() - 0.5) * 360, (Math.random() - 0.5) * 100],
-// essential: true // this animation is considered essential with respect to prefers-reduced-motion
-// });
-// });
-
 
 
 

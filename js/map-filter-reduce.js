@@ -86,6 +86,31 @@ console.log(usersNameString);
 
 //Use .reduce to get the unique list of languages from the list of users.
 
-let listOfLanguages = users.reduce((accumulator,currentNumber)=>{
+// let listOfLanguages = users.reduce((accumulator, currentLanguage)=>{
+//
+//     return accumulator.includes(currentLanguage.languages) ? accumulator : [...accumulator,currentLanguage.languages]
+//
+//
+// }, [])
 
-})
+
+//Use .reduce to get the unique list of languages from the list of users.
+
+let listOfLanguages = users.reduce((accumulator, currentLanguage)=>{
+
+
+    for (let i = 0; i < currentLanguage.languages.length; i++) {
+
+    if (!accumulator.includes(currentLanguage.languages[i])) {
+        console.log(accumulator);
+         accumulator.push(currentLanguage.languages[i]);
+
+     }
+
+}
+
+     return accumulator;
+
+}, [])
+
+console.log(listOfLanguages);
